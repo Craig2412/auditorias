@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+<h1 align="center">
+  <img src="https://user-images.githubusercontent.com/781074/67567104-9fe7d000-f729-11e9-8a2d-0c7286475aac.png">
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h3 align="center">Slim 4 Skeleton</h3>
 
-## Available Scripts
+<div align="center">
 
-In the project directory, you can run:
+  [![Latest Version on Packagist](https://img.shields.io/github/release/odan/slim4-skeleton.svg)](https://packagist.org/packages/odan/slim4-skeleton)
+  [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
+  [![Build Status](https://github.com/odan/slim4-skeleton/workflows/build/badge.svg)](https://github.com/odan/slim4-skeleton/actions)
+  [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/odan/slim4-skeleton.svg)](https://scrutinizer-ci.com/g/odan/slim4-skeleton/code-structure)
+  [![Quality Score](https://img.shields.io/scrutinizer/quality/g/odan/slim4-skeleton.svg)](https://scrutinizer-ci.com/g/odan/slim4-skeleton/?branch=master)
+  [![Total Downloads](https://img.shields.io/packagist/dt/odan/slim4-skeleton.svg)](https://packagist.org/packages/odan/slim4-skeleton/stats)
 
-### `npm start`
+This is a skeleton to quickly set up a new [Slim 4](https://www.slimframework.com/) application.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+</div>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Requirements
 
-### `npm test`
+* PHP 8.1+
+* MySQL 5.7+ or MariaDB
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+Read the **[documentation](https://odan.github.io/slim4-skeleton/installation.html)**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This project is based on best practices and industry standards:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* [Standard PHP package skeleton](https://github.com/php-pds/skeleton)
+* HTTP router (Slim)
+* HTTP message interfaces (PSR-7)
+* HTTP Server Request Handlers, Middleware (PSR-15)
+* Dependency injection container (PSR-11)
+* Autoloader (PSR-4)
+* Logger (PSR-3)
+* Code styles (PSR-12)
+* Single action controllers
+* Input validation
+* Query Builder
+* Immutable date time ([Chronos](https://github.com/cakephp/chronos))
+* Unit- and integration tests
+* Console Commands
+* Tested with [Github Actions](https://github.com/odan/slim4-skeleton/actions) and [Scrutinizer CI](https://scrutinizer-ci.com/)
+* [PHPStan](https://github.com/phpstan/phpstan)
 
-### `npm run eject`
+## Support
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+* [Issues](https://github.com/odan/slim4-skeleton/issues)
+* [Blog](https://odan.github.io/)  
+* [Donate](https://odan.github.io/donate.html) for this project.
+* [Slim 4 eBook on Ko-Fi](https://ko-fi.com/s/5f182b4b22)
+* [Slim 4 eBook on Stripe](https://buy.stripe.com/3cs7ui5aP9bl156aEF)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The MIT License (MIT). Please see [License File](LICENSE) for more information.
