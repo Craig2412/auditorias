@@ -10,30 +10,30 @@ return
         'default_migration_table' => 'phinxlog',
         'default_environment' => 'development',
         'production' => [
-            'adapter' => 'mysql',
-            'host' => 'localhost',
-            'name' => 'slim',
-            'user' => 'root',
+            'adapter' => 'pgsql',
+            'host' => '172.16.0.196',//'localhost',//
+            'name' => 'migracioness',
+            'user' =>'postgres',// 'root',//
             'pass' => '',
-            'port' => '3306',
+            'port' => '5432',//'3306',//
             'charset' => 'utf8',
         ],
         'development' => [
-            'adapter' => 'mysql',
-            'host' => 'localhost',
-            'name' => 'slim',
-            'user' => 'root',
+            'adapter' => 'pgsql',
+            'host' => '172.16.0.196',//'localhost',//
+            'name' => 'migracioness',
+            'user' =>'postgres',// 'root',//
             'pass' => '',
-            'port' => '3306',
+            'port' => '5432',//'3306',//
             'charset' => 'utf8',
         ],
         'testing' => [
-            'adapter' => 'mysql',
-            'host' => 'localhost',
-            'name' => 'slim',
-            'user' => 'root',
+            'adapter' => 'pgsql',
+            'host' => '172.16.0.196',//'localhost',//
+            'name' => 'migracioness',
+            'user' =>'postgres',// 'root',//
             'pass' => '',
-            'port' => '3306',
+            'port' => '5432',//'3306',//
             'charset' => 'utf8',
         ]
     ],
