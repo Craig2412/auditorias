@@ -6,6 +6,7 @@ use Phinx\Migration\AbstractMigration;
 final class Usuarios extends AbstractMigration{
     
     public function change(): void{
+        
         $usuarios = $this->table('usuarios');
         $usuarios->addColumn('nombre', 'string', ['limit' => 100])
                  ->addColumn('apellido', 'string', ['limit' => 100])
@@ -20,10 +21,6 @@ final class Usuarios extends AbstractMigration{
                  ->addIndex('id_rol')
                  ->addIndex('id_condicion')
                  ->addIndex('id_bufete')
-                 
-                 ->addForeignKey(['id_rol'],'roles',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_rolUsers'])
-                 ->addForeignKey(['id_condicion'],'condiciones',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_condicionUsers'])
-                 ->addForeignKey(['id_bufete'],'empresas',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_bufeteUsers'])
-                 ->create();
+                  ->create();
     }
 }

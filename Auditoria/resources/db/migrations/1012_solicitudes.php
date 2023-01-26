@@ -24,11 +24,6 @@ final class Solicitudes extends AbstractMigration
                         ->addIndex('id_requerimiento')
                         ->addIndex('id_condicion')
                         ->addIndex('id_estatus')
-                        
-                        ->addForeignKey(['id_categoria'],'categorias',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_categoriaSol'])
-                        ->addForeignKey(['id_requerimiento'],'requerimientos',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_requerimientoSol'])
-                        ->addForeignKey(['id_condicion'],'condiciones',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_condicionSol'])
-                        ->addForeignKey(['id_estatus'],'estatus',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_estatusSol'])
                         ->create();
     }
 }

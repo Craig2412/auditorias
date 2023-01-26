@@ -16,9 +16,6 @@ final class Citas extends AbstractMigration
 
                  ->addIndex('id_requerimiento')
                  ->addIndex('id_estatus')
-                 
-                 ->addForeignKey(['id_requerimiento'],'requerimientos',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_requerimientoCita'])
-                 ->addForeignKey(['id_estatus'],'estatus',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_estatusCita'])
                  ->create();
                 
     }

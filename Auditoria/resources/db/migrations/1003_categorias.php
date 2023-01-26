@@ -16,9 +16,6 @@ final class Categorias extends AbstractMigration
 
                    ->addIndex('id_departamento')
                    ->addIndex('id_condicion')
-                 
-                   ->addForeignKey(['id_departamento'],'departamentos',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_departamentoCategory'])
-                   ->addForeignKey(['id_condicion'],'condiciones',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_condicionCategory'])
                    ->create();
     }
 }

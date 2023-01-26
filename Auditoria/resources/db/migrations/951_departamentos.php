@@ -12,10 +12,7 @@ final class Departamentos extends AbstractMigration
                         ->addColumn('id_condicion', 'integer', ['signed' => false])
                         ->addColumn('created', 'datetime')
                         ->addColumn('updated', 'datetime', ['null' => true])
-
                         ->addIndex('id_condicion')
-                        
-                        ->addForeignKey(['id_condicion'],'condiciones',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_condicionDepartments'])
                         ->create();
-    }
+   }
 }

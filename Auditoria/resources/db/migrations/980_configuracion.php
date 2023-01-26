@@ -15,8 +15,6 @@ final class Configuracion extends AbstractMigration
                         ->addColumn('updated', 'datetime', ['null' => true])
                         
                         ->addIndex('id_condicion')
-                        
-                        ->addForeignKey(['id_condicion'],'condiciones',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_condicionConfig'])
                         ->create();
     }
 }

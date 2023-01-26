@@ -16,9 +16,6 @@ final class Estatus extends AbstractMigration
                         
                         ->addIndex('id_agrupacion')
                         ->addIndex('id_condicion')
-                        
-                        ->addForeignKey(['id_agrupacion'],'agrupaciones',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_agrupacionSta'])
-                        ->addForeignKey(['id_condicion'],'condiciones',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_condicionSta'])
                         ->create();
     }
 }
