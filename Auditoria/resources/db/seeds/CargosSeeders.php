@@ -3,21 +3,18 @@
 
 use Phinx\Seed\AbstractSeed;
 
-class CondicionSeeders extends AbstractSeed
+class CargosSeeders extends AbstractSeed
 {
     public function run(): void
     {
         $data = [
             [
                 'id'    => 1,
-                'condicion'    => 'ACTIVO',
-            ],[
-                'id'    => 2,
-                'condicion'    => 'INACTIVO',
+                'cargo'  => 'ANALISTA DE MARCAS'
             ]
             ];
 
-        $posts = $this->table('condicion');
+        $posts = $this->table('cargos');
         $posts->insert($data)
               ->saveData();
     }

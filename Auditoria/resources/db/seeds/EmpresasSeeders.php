@@ -12,7 +12,7 @@ class EmpresasSeeders extends AbstractSeed
                     'id'    => 1,
                     'nombre'    => 'N/A',
                     'rif'    => 'N/A',
-                    'bufete'    => 0,
+                    'bufete'    => 0
                 ]
             ];
 

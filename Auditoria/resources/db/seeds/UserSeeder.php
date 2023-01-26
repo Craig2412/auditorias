@@ -10,7 +10,7 @@ class UserSeeder extends AbstractSeed
     {
         $data = [
             [
-                'id_user'    => 1,
+                'id'    => 1,
                 'nombre'    => 'Alex',
                 'apellido'    => 'Aular',
                 'email'    => 'aularalexander55@gmail.com',
@@ -21,7 +21,7 @@ class UserSeeder extends AbstractSeed
                 'created' => date('Y-m-d H:i:s'),
                 'updated' => null
             ],[
-                'id_user'    => 2,
+                'id'    => 2,
                 'nombre'    => 'Ely',
                 'apellido'    => 'Chirivella',
                 'email'    => 'elychirivella10@gmail.com',
@@ -34,7 +34,7 @@ class UserSeeder extends AbstractSeed
             ]
         ];
 
-        $posts = $this->table('user');
+        $posts = $this->table('usuarios');
         $posts->insert($data)
               ->saveData();
     }
