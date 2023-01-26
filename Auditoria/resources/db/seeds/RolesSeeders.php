@@ -3,14 +3,20 @@
 
 use Phinx\Seed\AbstractSeed;
 
-class CargosSeeders extends AbstractSeed
+class RolesSeeders extends AbstractSeed
 {
     public function run(): void
     {
         $data = [
             [
                 'id'    => 1,
-                'cargo'    => 'ANALISTA DE MARCAS',
+                'rol'    => 'ADMINISTRADOR'
+            ],[
+                'id'    => 2,
+                'rol'    => 'USUARIO'
+            ],[
+                'id'    => 3,
+                'rol'    => 'TRABAJADOR'
             ]
             ];
 
