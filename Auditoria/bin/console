@@ -1,26 +1,14 @@
+#!/usr/bin/php
 <?php
 
-use App\Factory\ContainerFactory;
-use Psr\Container\ContainerInterface;
+declare(strict_types=1);
+
+require __DIR__ . '/../../../../src/App/App.php';
+
 use Symfony\Component\Console\Application;
-use Symfony\Component\Console\Input\ArgvInput;
 
-require_once __DIR__ . '/../vendor/autoload.php';
+$application = new Application();
 
-$env = (new ArgvInput())->getParameterOption(['--env', '-e'], 'dev');
+$application->add(new App\Command\CrudGeneratorCommand($app));
 
-if ($env) {
-    $_ENV['APP_ENV'] = $env;
-}
-
-/** @var ContainerInterface $container */
-$container = ContainerFactory::createInstance();
-
-try {
-    /** @var Application $application */
-    $application = $container->get(Application::class);
-    exit($application->run());
-} catch (Throwable $exception) {
-    echo $exception->getMessage();
-    exit(1);
-}
+$application->run();
