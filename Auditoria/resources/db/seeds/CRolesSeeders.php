@@ -3,7 +3,7 @@
 
 use Phinx\Seed\AbstractSeed;
 
-class RolesSeeders extends AbstractSeed
+class CRolesSeeders extends AbstractSeed
 {
     public function run(): void
     {

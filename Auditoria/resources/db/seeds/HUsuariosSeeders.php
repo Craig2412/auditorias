@@ -3,9 +3,8 @@
 
 use Phinx\Seed\AbstractSeed;
 
-class UserSeeder extends AbstractSeed
+class HUsuariosSeeders extends AbstractSeed
 {
-    
     public function run(): void
     {
         $data = [

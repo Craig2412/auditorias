@@ -3,7 +3,7 @@
 
 use Phinx\Seed\AbstractSeed;
 
-class DespartamentosSeeders extends AbstractSeed
+class BDepartamentosSeeders extends AbstractSeed
 {
     public function run(): void
     {

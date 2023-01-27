@@ -11,7 +11,7 @@ final class Usuarios extends AbstractMigration{
         $usuarios->addColumn('nombre', 'string', ['limit' => 100])
                  ->addColumn('apellido', 'string', ['limit' => 100])
                  ->addColumn('email', 'string' , ['limit' => 100])
-                 ->addColumn('telefono', 'integer' , ['limit' => 11])        
+                 ->addColumn('telefono', 'string' , ['limit' => 11])        
                  ->addColumn('id_rol', 'integer' , ['null' => false, 'signed' => false])
                  ->addColumn('id_condicion', 'integer' , ['null' => false, 'signed' => false])
                  ->addColumn('id_bufete', 'integer' , ['null' => false, 'signed' => false])         
