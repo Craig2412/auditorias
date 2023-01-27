@@ -3,8 +3,8 @@
 
 use Phinx\Seed\AbstractSeed;
 
-class CargosSeeders extends AbstractSeed
-{
+class ECargosSeeders extends AbstractSeed
+{   
     public function run(): void
     {
         $data = [

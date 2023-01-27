@@ -3,7 +3,7 @@
 
 use Phinx\Seed\AbstractSeed;
 
-class CondicionSeeders extends AbstractSeed
+class ACondicionesSeeds extends AbstractSeed
 {
     public function run(): void
     {
