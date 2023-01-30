@@ -32,13 +32,6 @@ final class CustomerFinder
         foreach ($customerRows as $customerRow) {
             $customer = new CustomerFinderItem();
             $customer->id = $customerRow['id'];
-            $customer->number = $customerRow['number'];
-            $customer->name = $customerRow['name'];
-            $customer->street = $customerRow['street'];
-            $customer->postalCode = $customerRow['postal_code'];
-            $customer->city = $customerRow['city'];
-            $customer->country = $customerRow['country'];
-            $customer->email = $customerRow['email'];
 
             $result->customers[] = $customer;
         }

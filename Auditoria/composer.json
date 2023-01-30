@@ -18,7 +18,6 @@
         "cakephp/database": "^4",
         "cakephp/migrations": "@stable",
         "fig/http-message-util": "^1.1",
-        "firebase/php-jwt": "^6.3",
         "hevertonfreitas/cakephp-audit-log": "^4.0",
         "monolog/monolog": "^3",
         "nyholm/psr7": "^1.4",
@@ -28,7 +27,8 @@
         "selective/basepath": "^2",
         "slim/slim": "^4",
         "symfony/uid": "^6",
-        "symfony/validator": "^6"
+        "symfony/validator": "^6",
+        "tuupola/slim-jwt-auth": "^3.7"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3",
