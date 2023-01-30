@@ -15,7 +15,7 @@ final class CustomerFinderRepository
 
     public function findCustomers(): array
     {
-        $query = $this->queryFactory->newSelect('customers');
+        $query = $this->queryFactory->newSelect('estatus');
 
         $query->select(
             [
