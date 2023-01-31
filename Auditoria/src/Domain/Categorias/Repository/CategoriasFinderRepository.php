@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Domain\Cargos\Repository;
+namespace App\Domain\Categorias\Repository;
 
 use App\Factory\QueryFactory;
 
-final class CargoFinderRepository
+final class CategoriasFinderRepository
 {
     private QueryFactory $queryFactory;
 
@@ -13,14 +13,16 @@ final class CargoFinderRepository
         $this->queryFactory = $queryFactory;
     }
 
-    public function findCustomers(): array
+    public function findCategorias(): array
     {
-        $query = $this->queryFactory->newSelect('cargos');
+        $query = $this->queryFactory->newSelect('categorias');
 
         $query->select(
             [
                 'id',
-                'cargo'
+                'categoria',
+                'id_condicion',
+                'id_departamento'   
             ]
         );
 

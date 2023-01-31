@@ -1,7 +1,7 @@
 <?php
 
 return
-/*
+
 [
     'paths' => [
         'migrations' => '%%PHINX_CONFIG_DIR%%/resources/db/migrations',
@@ -40,11 +40,11 @@ return
     ],
     'version_order' => 'creation'
 ];
-*/
+
 
 ////////////////////////MYSQL/////////////////////////////////////
 
-[
+/* [
     'paths' => [
         'migrations' => '%%PHINX_CONFIG_DIR%%/resources/db/migrations',
         'seeds' => '%%PHINX_CONFIG_DIR%%/resources/db/seeds'
@@ -82,3 +82,4 @@ return
     ],
     'version_order' => 'creation'
 ];
+ */

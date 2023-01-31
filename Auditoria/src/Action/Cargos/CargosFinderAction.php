@@ -39,7 +39,6 @@ final class CargosFinderAction
             $cargos[] = [
                 'id' => $customer->id,
                 'cargo' => $customer->cargo,
-                
             ];
         }
 
