@@ -16,7 +16,7 @@ return function (App $app) {
         function (RouteCollectorProxy $app) { 
             $app->get('', \App\Action\Categorias\CategoriasFinderAction::class);
             $app->get('/{id_categorias}', \App\Action\Categorias\CategoriaReaderAction::class);
-            $app->post('/create', \App\Action\Categorias\CategoriasCreatorAction::class);
+            $app->post('', \App\Action\Categorias\CategoriasCreatorAction::class);
             $app->put('/{id_categorias}', \App\Action\Categorias\CategoriasUpdaterAction::class);
             $app->delete ('/{id_categorias}', \App\Action\Categorias\CategoriasDeleterAction::class);
         }
