@@ -2,7 +2,7 @@
 
 namespace App\Action\Categorias;
 
-use App\Domain\Categorias\Service\CategoriaCreatorgthy;
+use App\Domain\Categorias\Service\CategoriaCreator;
 use App\Renderer\JsonRenderer;
 use Fig\Http\Message\StatusCodeInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -12,9 +12,9 @@ final class CategoriaCreatorAction
 {
     private JsonRenderer $renderer;
 
-    private CategoriaCreatorgthy $categoriaCreator;
+    private CategoriaCreator $categoriaCreator;
 
-    public function __construct(CategoriaCreatorgthy $categoriaCreator, JsonRenderer $renderer)
+    public function __construct(CategoriaCreator $categoriaCreator, JsonRenderer $renderer)
     {
         $this->categoriaCreator = $categoriaCreator;
         $this->renderer = $renderer;
