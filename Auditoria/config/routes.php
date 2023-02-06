@@ -10,16 +10,22 @@ return function (App $app) {
     $app->get('/', \App\Action\Home\HomeAction::class)->setName('home');
     $app->get('/dashboard', \App\Action\Home\HomeAction::class)->setName('dashboard');
 
+    //CATEGORIAS
+    $app->group(
+        '/categorias',
+        function (RouteCollectorProxy $app) { 
+            $app->get('', \App\Action\Categorias\CategoriasFinderAction::class);
+            $app->get('/{id_categorias}', \App\Action\Categorias\CategoriasReaderAction::class);
+            $app->post('', \App\Action\Categorias\CategoriasCreatorAction::class);
+            $app->put('', \App\Action\Categorias\CategoriasUpdaterAction::class);
+            $app->delete ('', \App\Action\Categorias\CategoriasDeleterAction::class);
+        }
+    );
     // API
     $app->group(
         '/api',
         function (RouteCollectorProxy $app) {
-            $app->get('/categorias', \App\Action\Categorias\CategoriasFinderAction::class);
-            $app->get('/Categorias/{Categorias_id}', \App\Action\Categorias\CategoriasReaderAction::class);
-            $app->post('/Categorias', \App\Action\Categorias\CategoriasCreatorAction::class);
-            $app->put('/Categorias', \App\Action\Categorias\CategoriasUpdaterAction::class);
-            $app->delete ('/Categorias', \App\Action\Categorias\CategoriasDeleterAction::class);
-
+           
             $app->get('/cargos', \App\Action\Cargos\CargosFinderAction::class);
             $app->get('/cargos/{cargos_id}', \App\Action\Cargos\CargosReaderAction::class);
             $app->post('/cargos', \App\Action\Cargos\CargosCreatorAction::class);
