@@ -21,17 +21,23 @@ return function (App $app) {
             $app->delete ('', \App\Action\Categorias\CategoriasDeleterAction::class);
         }
     );
-    // API
+
+    //CARGOS
     $app->group(
-        '/api',
-        function (RouteCollectorProxy $app) {
-           
+        '/cargos',
+        function (RouteCollectorProxy $app) {            
             $app->get('/cargos', \App\Action\Cargos\CargosFinderAction::class);
             $app->get('/cargos/{cargos_id}', \App\Action\Cargos\CargosReaderAction::class);
             $app->post('/cargos', \App\Action\Cargos\CargosCreatorAction::class);
             $app->put('/cargos', \App\Action\Cargos\CargosUpdaterAction::class);
             $app->delete ('/cargos', \App\Action\Cargos\CargosDeleterAction::class);
-
+        }
+    );
+    // API
+    $app->group(
+        '/api',
+        function (RouteCollectorProxy $app) {
+           
             $app->get('/customers', \App\Action\Customer\CustomerFinderAction::class);
             $app->get('/customers/{customer_id}', \App\Action\Customer\CustomerReaderAction::class);
             $app->post('/customers', \App\Action\Customer\CustomerCreatorAction::class);
