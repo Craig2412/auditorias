@@ -27,7 +27,7 @@ return function (App $app) {
         '/cargos',
         function (RouteCollectorProxy $app) {            
             $app->get('/cargos', \App\Action\Cargos\CargosFinderAction::class);
-            $app->get('/cargos/{cargos_id}', \App\Action\Cargos\CargosReaderAction::class);
+            $app->get('/cargos/{id_cargos}', \App\Action\Cargos\CargosReaderAction::class);
             $app->post('/cargos', \App\Action\Cargos\CargosCreatorAction::class);
             $app->put('/cargos', \App\Action\Cargos\CargosUpdaterAction::class);
             $app->delete ('/cargos', \App\Action\Cargos\CargosDeleterAction::class);
