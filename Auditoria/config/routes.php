@@ -9,6 +9,11 @@ return function (App $app) {
     // Redirect to Swagger documentation
     $app->get('/', \App\Action\Home\HomeAction::class)->setName('home');
 
+    $app->group('/auth', function (RouteCollectorProxy $app) { 
+        $app->get('/user', \App\Action\Auth\AuthLoginAction::class);
+        $app->post('/user', \App\Action\Auth\AuthSigninAction::class);
+        $app->get('/verificate', \App\Action\Auth\AuthVerificateAction::class);
+    });
     // API
     $app->group(
         '/api',

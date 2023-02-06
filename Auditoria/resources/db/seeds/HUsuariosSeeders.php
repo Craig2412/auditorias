@@ -10,30 +10,34 @@ class HUsuariosSeeders extends AbstractSeed
         $data = [
             [
                 'id'    => 1,
-                'nombre'    => 'Alex',
-                'apellido'    => 'Aular',
+                'name'    => 'Alex',
+                'surname'    => 'Aular',
                 'email'    => 'aularalexander55@gmail.com',
-                'telefono'    => 4127008592,
-                'id_rol'    => 1,
-                'id_condicion' => 1,
-                'id_bufete'    =>1,
+                'identification'    => 'V027038431',
+                'pass'    => 'V027038432',
+                'phone'    => 4127008592,
+                'id_role'    => 1,
+                'id_condition' => 1,
+                'id_signature'    =>1,
                 'created' => date('Y-m-d H:i:s'),
                 'updated' => null
             ],[
                 'id'    => 2,
-                'nombre'    => 'Ely',
-                'apellido'    => 'Chirivella',
+                'name'    => 'Ely',
+                'surname'    => 'Chirivella',
                 'email'    => 'elychirivella10@gmail.com',
-                'telefono'    => 4127008592,
-                'id_rol'    => 1,
-                'id_condicion'    => 1,
-                'id_bufete'    => 1,
+                'identification'    => 'V027038432',
+                'pass'    => 'V027038432',
+                'phone'    => 4127008592,
+                'id_role'    => 1,
+                'id_condition'    => 1,
+                'id_signature'    => 1,
                 'created' => date('Y-m-d H:i:s'),
                 'updated' => null
             ]
         ];
 
-        $posts = $this->table('usuarios');
+        $posts = $this->table('users');
         $posts->insert($data)
               ->saveData();
     }

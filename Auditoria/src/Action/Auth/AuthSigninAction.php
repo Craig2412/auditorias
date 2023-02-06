@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Action\Auth;
+
+use App\Domain\User\Service\UserCreator;
+use App\Renderer\JsonRenderer;
+use Fig\Http\Message\StatusCodeInterface;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use App\Auth\Auth;
+
+final class AuthSigninAction
+{
+    private JsonRenderer $renderer;
+
+    private UserCreator $userCreator;
+
+    public function __construct(UserCreator $userCreator, JsonRenderer $renderer)
+    {
+        $this->userCreator = $userCreator;
+        $this->renderer = $renderer;
+    }
+
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    {
+        // Extract the form data from the request body
+        $data = (array)$request->getParsedBody();
+
+        // Invoke the Domain with inputs and retain the result
+        $user = $this->userCreator->createUser($data);
+
+        $token = Auth::SignIn($user);
+        var_dump($token);
+
+        // Build the HTTP response
+        return $this->renderer
+            ->json($response, ['user_data' => $user])
+            ->withStatus(StatusCodeInterface::STATUS_CREATED);
+    }
+}

@@ -8,10 +8,10 @@ final class RelacionUsuarios extends AbstractMigration
     public function up()
     {
 
-        $usuarios = $this->table('usuarios');
-        $usuarios->addForeignKey(['id_rol'],'roles',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_rolUsers'])
-                 ->addForeignKey(['id_condicion'],'condiciones',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_condicionUsers'])
-                 ->addForeignKey(['id_bufete'],'empresas',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_bufeteUsers'])
+        $usuarios = $this->table('users');
+        $usuarios->addForeignKey(['id_role'],'roles',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_roleUsers'])
+                 ->addForeignKey(['id_condition'],'condiciones',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_conditionUsers'])
+                 ->addForeignKey(['id_signature'],'empresas',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_signatureUsers'])
                  ->save();
        
     }
