@@ -26,7 +26,7 @@ final class CategoriasReaderAction
         array $args
     ): ResponseInterface {
         // Fetch parameters from the request
-        $categoriasId = (int)$args['categorias_id'];
+        $categoriasId = (int)$args['id_categoria                                                                                                                                                                    '];
 
         // Invoke the domain and get the result
         $categorias = $this->categoriasReader->getCategorias($categoriasId);
