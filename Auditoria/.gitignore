@@ -61,4 +61,4 @@ logs/*
 public/assets/*
 !public/assets/.htaccess
 
-config/
+config/*
