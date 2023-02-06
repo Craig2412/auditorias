@@ -10,37 +10,39 @@ return function (App $app) {
     $app->get('/', \App\Action\Home\HomeAction::class)->setName('home');
     $app->get('/dashboard', \App\Action\Home\HomeAction::class)->setName('dashboard');
 
-    $app->group('/categorias', function(RouteCollectorProxy $app){
-        //Categorias
-        $app->get('', \App\Action\Categorias\CategoriasFinderAction::class);
-        $app->get('/categorias/{id_categoria}', \App\Action\Categorias\CategoriasReaderAction::class);
-        $app->post('/categorias', \App\Action\Categorias\CategoriasCreatorAction::class);
-        $app->put('/categorias', \App\Action\Categorias\CategoriasUpdaterAction::class);
-        $app->delete ('/categorias', \App\Action\Categorias\CategoriasDeleterAction::class);
-        //Categorias
-    });
+    //CATEGORIAS
+    $app->group(
+        '/categorias',
+        function (RouteCollectorProxy $app) { 
+            $app->get('', \App\Action\Categorias\CategoriasFinderAction::class);
+            $app->get('/{id_categorias}', \App\Action\Categorias\CategoriaReaderAction::class);
+            $app->post('/create', \App\Action\Categorias\CategoriasCreatorAction::class);
+            $app->put('/{id_categorias}', \App\Action\Categorias\CategoriasUpdaterAction::class);
+            $app->delete ('/{id_categorias}', \App\Action\Categorias\CategoriasDeleterAction::class);
+        }
+    );
 
+    //CARGOS
+    $app->group(
+        '/cargos',
+        function (RouteCollectorProxy $app) {            
+            $app->get('', \App\Action\Cargos\CargosFinderAction::class);
+            $app->get('/{id_cargos}', \App\Action\Cargos\CargosReaderAction::class);
+            $app->post('', \App\Action\Cargos\CargosCreatorAction::class);
+            $app->put('', \App\Action\Cargos\CargosUpdaterAction::class);
+            $app->delete ('', \App\Action\Cargos\CargosDeleterAction::class);
+        }
+    );
     // API
     $app->group(
         '/api',
         function (RouteCollectorProxy $app) {
-            
-            //Cargos
-            $app->get('/cargos', \App\Action\Cargos\CargosFinderAction::class);
-            $app->get('/cargos/{cargos_id}', \App\Action\Cargos\CargosReaderAction::class);
-            $app->post('/cargos', \App\Action\Cargos\CargosCreatorAction::class);
-            $app->put('/cargos', \App\Action\Cargos\CargosUpdaterAction::class);
-            $app->delete ('/cargos', \App\Action\Cargos\CargosDeleterAction::class);
-            //Cargos
-
-            //customer
+           
             $app->get('/customers', \App\Action\Customer\CustomerFinderAction::class);
             $app->get('/customers/{customer_id}', \App\Action\Customer\CustomerReaderAction::class);
             $app->post('/customers', \App\Action\Customer\CustomerCreatorAction::class);
             $app->put('/customers/{customer_id}', \App\Action\Customer\CustomerUpdaterAction::class);
             $app->delete('/customers/{customer_id}', \App\Action\Customer\CustomerDeleterAction::class);
-            //customer
-
         }
     );
 };

@@ -32,7 +32,7 @@ $settings['logger'] = [
 
 // Database settings
 $settings['db'] = [
-    'driver' => \Cake\Database\Driver\Mysql::class,
+    'driver' => \Cake\Database\Driver\Postgres::class,
     'host' => 'localhost',
     'encoding' => 'utf8mb4',
     'collation' => 'utf8mb4_unicode_ci',

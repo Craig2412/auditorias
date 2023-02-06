@@ -22,7 +22,9 @@ final class CategoriasFinderAction
 
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-       
+        // Optional: Pass parameters from the request to the service method
+        // ...
+
         $categorias = $this->categoriasFinder->findcategorias();
 
         // Transform result and render to json

@@ -12,7 +12,10 @@ return function (array $settings): array {
     $settings['logger']['level'] = \Monolog\Level::Debug;
 
     // Database
-    $settings['db']['database'] = 'slim_skeleton_dev';
+    $settings['db']['host'] = '172.16.0.196';
+    $settings['db']['username'] = 'postgres';
+    $settings['db']['database'] = 'migracioness';
+    $settings['db']['encoding'] = 'utf8';
 
     return $settings;
 };

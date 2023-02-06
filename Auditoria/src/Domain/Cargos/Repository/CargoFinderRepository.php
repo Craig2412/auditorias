@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Domain\Customer\Repository;
+namespace App\Domain\Cargos\Repository;
 
 use App\Factory\QueryFactory;
 
-final class CustomerFinderRepository
+final class CargoFinderRepository
 {
     private QueryFactory $queryFactory;
 
@@ -19,8 +19,8 @@ final class CustomerFinderRepository
 
         $query->select(
             [
-                'id'
-                
+                'id',
+                'cargo'
             ]
         );
 
