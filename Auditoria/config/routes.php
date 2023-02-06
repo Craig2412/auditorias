@@ -20,7 +20,7 @@ return function (App $app) {
             $app->put('/{id_categorias}', \App\Action\Categorias\CategoriasUpdaterAction::class);
             $app->delete ('/{id_categorias}', \App\Action\Categorias\CategoriasDeleterAction::class);
         }
-    );
+    );//hhhhhhh
 
     //CARGOS
     $app->group(
