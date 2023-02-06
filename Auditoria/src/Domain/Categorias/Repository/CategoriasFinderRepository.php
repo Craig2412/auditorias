@@ -22,12 +22,11 @@ final class CategoriasFinderRepository
                 'id',
                 'categoria',
                 'id_condicion',
-                'id_departamento'   
+                'id_departamento',
+                'created',
+                'updated'
             ]
         );
-
-        // Add more "use case specific" conditions to the query
-        // ...
 
         return $query->execute()->fetchAll('assoc') ?: [];
     }

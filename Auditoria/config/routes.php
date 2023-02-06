@@ -15,10 +15,10 @@ return function (App $app) {
         '/categorias',
         function (RouteCollectorProxy $app) { 
             $app->get('', \App\Action\Categorias\CategoriasFinderAction::class);
-            $app->get('/{id_categorias}', \App\Action\Categorias\CategoriasReaderAction::class);
-            $app->post('', \App\Action\Categorias\CategoriasCreatorAction::class);
-            $app->put('', \App\Action\Categorias\CategoriasUpdaterAction::class);
-            $app->delete ('', \App\Action\Categorias\CategoriasDeleterAction::class);
+            $app->get('/{id_categorias}', \App\Action\Categorias\CategoriaReaderAction::class);
+            $app->post('/create', \App\Action\Categorias\CategoriasCreatorAction::class);
+            $app->put('/{id_categorias}', \App\Action\Categorias\CategoriasUpdaterAction::class);
+            $app->delete ('/{id_categorias}', \App\Action\Categorias\CategoriasDeleterAction::class);
         }
     );
 
@@ -26,11 +26,11 @@ return function (App $app) {
     $app->group(
         '/cargos',
         function (RouteCollectorProxy $app) {            
-            $app->get('/cargos', \App\Action\Cargos\CargosFinderAction::class);
-            $app->get('/cargos/{id_cargos}', \App\Action\Cargos\CargosReaderAction::class);
-            $app->post('/cargos', \App\Action\Cargos\CargosCreatorAction::class);
-            $app->put('/cargos', \App\Action\Cargos\CargosUpdaterAction::class);
-            $app->delete ('/cargos', \App\Action\Cargos\CargosDeleterAction::class);
+            $app->get('', \App\Action\Cargos\CargosFinderAction::class);
+            $app->get('/{id_cargos}', \App\Action\Cargos\CargosReaderAction::class);
+            $app->post('', \App\Action\Cargos\CargosCreatorAction::class);
+            $app->put('', \App\Action\Cargos\CargosUpdaterAction::class);
+            $app->delete ('', \App\Action\Cargos\CargosDeleterAction::class);
         }
     );
     // API
