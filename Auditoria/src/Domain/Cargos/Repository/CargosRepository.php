@@ -69,8 +69,7 @@ final class CargosRepository
     private function toRow(array $cargos): array
     {
         return [
-            'id' => $cargos['id'],
-            'cargo' => $cargos['name']
+            'cargo' => $cargos['cargos']
         ];
     }
 }

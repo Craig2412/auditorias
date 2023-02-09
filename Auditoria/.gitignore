@@ -29,6 +29,7 @@ public/.env
 env.php
 config/env.php
 
+config/*
 #!public/assets/
 #public/assets/*
 #!public/assets/.htaccess
@@ -60,5 +61,3 @@ logs/*
 !public/assets/
 public/assets/*
 !public/assets/.htaccess
-
-config/*

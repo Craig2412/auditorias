@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Action\Cargos;
+namespace App\Action\Categories;
 
-use App\Domain\Cargos\Service\CargosCreator;
+use App\Domain\Categories\Service\CategoriesCreator;
 use App\Renderer\JsonRenderer;
 use Fig\Http\Message\StatusCodeInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-final class CargosCreatorAction
+final class CategoriesCreatorAction
 {
     private JsonRenderer $renderer;
 
-    private CargosCreator $cargosCreator;
+    private CategoriesCreator $categoriesCreator;
 
-    public function __construct(CargosCreator $cargosCreator, JsonRenderer $renderer)
+    public function __construct(CategoriesCreator $categoriesCreator, JsonRenderer $renderer)
     {
-        $this->cargosCreator = $cargosCreator;
+        $this->categoriesCreator = $categoriesCreator;
         $this->renderer = $renderer;
     }
 
@@ -26,11 +26,11 @@ final class CargosCreatorAction
         $data = (array)$request->getParsedBody();
 
         // Invoke the Domain with inputs and retain the result
-        $cargosId = $this->cargosCreator->createCargos($data);
+        $categoriesId = $this->categoriesCreator->createCategories($data);
 
         // Build the HTTP response
         return $this->renderer
-            ->json($response, ['id_cargo' => $cargosId])
+            ->json($response, ['categories_id' => $categoriesId])
             ->withStatus(StatusCodeInterface::STATUS_CREATED);
     }
 }
