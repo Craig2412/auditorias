@@ -76,8 +76,8 @@ final class CategoriesRepository
     {
         return [
             'category' => $categories['category'],
-            'condition' => $categories['condition'],
-            'deparment' => $categories['deparment'],
+            'id_condition' => $categories['id_condition'],
+            'id_deparment' => $categories['id_deparment'],
             'created' => $this->fecha,
             'updated' =>null
         ];

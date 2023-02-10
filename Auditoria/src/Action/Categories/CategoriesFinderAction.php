@@ -36,16 +36,16 @@ final class CategoriesFinderAction
         $categories = [];
 
         foreach ($result->categories as $categories) {
-            $categories[] = [
+            $category[] = [
                 'id' => $categories->id,
                 'category' => $categories->category,
-                'condition' => $categories->condicion,
-                'deparment' => $categories->departamento
+                'condition' => $categories->condition,
+                'deparment' => $categories->deparment
             ]; 
         }
 
         return [
-            'categories' => $categories,
+            'categories' => $category,
         ];
     }
 }

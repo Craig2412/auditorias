@@ -10,6 +10,17 @@ return function (App $app) {
     $app->get('/', \App\Action\Home\HomeAction::class)->setName('home');
     $app->get('/dashboard', \App\Action\Home\HomeAction::class)->setName('dashboard');
 
+    //WORKERS
+    $app->group(
+        '/workers',
+        function (RouteCollectorProxy $app) { 
+            $app->get('', \App\Action\Workers\WorkersFinderAction::class);//
+            $app->get('/{id_worker}', \App\Action\Workers\WorkersReaderAction::class);
+            $app->post('', \App\Action\Workers\WorkersCreatorAction::class);//Completado
+            $app->put('/{id_worker}', \App\Action\Workers\WorkersUpdaterAction::class);
+            $app->delete ('/{id_worker}', \App\Action\Workers\WorkersDeleterAction::class);
+        }
+    );
     //CATEGORIAS
     $app->group(
         '/categories',

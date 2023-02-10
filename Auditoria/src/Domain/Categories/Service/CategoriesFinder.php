@@ -34,7 +34,7 @@ final class CategoriesFinder
             $categories->id = $categoriesRow['id'];
             $categories->category = $categoriesRow['category'];
             $categories->condition = $categoriesRow['condition'];
-            $categories->departamento = $categoriesRow['deparment'];
+            $categories->deparment = $categoriesRow['deparment'];
 
             $result->categories[] = $categories;
         }

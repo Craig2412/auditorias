@@ -8,8 +8,7 @@ final class Workers extends AbstractMigration
     public function change(): void
     {
         $workers = $this->table('workers');
-        $workers        ->addColumn('amount_requirements', 'integer')
-                        ->addColumn('id_charge', 'integer', ['signed' => false])
+        $workers        ->addColumn('id_charge', 'integer', ['signed' => false])
                         ->addColumn('id_user', 'integer', ['signed' => false])
                         ->addColumn('id_status', 'integer', ['signed' => false])                        
                         ->addColumn('id_deparment', 'integer', ['signed' => false])                        
