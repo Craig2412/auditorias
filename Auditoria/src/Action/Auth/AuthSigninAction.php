@@ -3,11 +3,11 @@
 namespace App\Action\Auth;
 
 use App\Domain\User\Service\UserCreator;
+use App\Domain\Token\Service\TokenCreator;
 use App\Renderer\JsonRenderer;
 use Fig\Http\Message\StatusCodeInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use App\Auth\Auth;
 
 final class AuthSigninAction
 {
@@ -15,9 +15,12 @@ final class AuthSigninAction
 
     private UserCreator $userCreator;
 
-    public function __construct(UserCreator $userCreator, JsonRenderer $renderer)
+    private TokenCreator $tokenCreator;
+
+    public function __construct(UserCreator $userCreator, TokenCreator $tokenCreator, JsonRenderer $renderer)
     {
         $this->userCreator = $userCreator;
+        $this->tokenCreator = $tokenCreator;
         $this->renderer = $renderer;
     }
 
@@ -25,12 +28,9 @@ final class AuthSigninAction
     {
         // Extract the form data from the request body
         $data = (array)$request->getParsedBody();
-
         // Invoke the Domain with inputs and retain the result
         $user = $this->userCreator->createUser($data);
-
-        $token = Auth::SignIn($user);
-        var_dump($token);
+        $token = $this->tokenCreator->createToken($user);
 
         // Build the HTTP response
         return $this->renderer
