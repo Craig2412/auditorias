@@ -10,11 +10,23 @@ return function (App $app) {
     $app->get('/', \App\Action\Home\HomeAction::class)->setName('home');
     $app->get('/dashboard', \App\Action\Home\HomeAction::class)->setName('dashboard');
 
+    //REQUIREMENTS
+    $app->group(
+        '/requirements',
+        function (RouteCollectorProxy $app) { 
+            $app->get('', \App\Action\Requirements\RequirementsFinderAction::class);//Completado
+            $app->get('/{id_requirement}', \App\Action\Requirements\RequirementsReaderAction::class);
+            $app->post('', \App\Action\Requirements\RequirementsCreatorAction::class);//Completado
+            $app->put('/{id_requirement}', \App\Action\Requirements\RequirementsUpdaterAction::class);
+            $app->delete ('/{id_requirement}', \App\Action\Requirements\RequirementsDeleterAction::class);
+        }
+    );
+
     //WORKERS
     $app->group(
         '/workers',
         function (RouteCollectorProxy $app) { 
-            $app->get('', \App\Action\Workers\WorkersFinderAction::class);//
+            $app->get('', \App\Action\Workers\WorkersFinderAction::class);//Completado
             $app->get('/{id_worker}', \App\Action\Workers\WorkersReaderAction::class);
             $app->post('', \App\Action\Workers\WorkersCreatorAction::class);//Completado
             $app->put('/{id_worker}', \App\Action\Workers\WorkersUpdaterAction::class);

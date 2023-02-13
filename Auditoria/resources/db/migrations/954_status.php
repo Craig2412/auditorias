@@ -9,6 +9,7 @@ final class Status extends AbstractMigration
     {
         $status = $this->table('status');
         $status        ->addColumn('status', 'string', ['limit' => 100])
+                        ->addColumn('status_number', 'integer', ['signed' => false])
                         ->addColumn('id_grouping', 'integer', ['signed' => false])
                         ->addColumn('id_condition', 'integer', ['signed' => false])
                         ->addColumn('created', 'datetime')
