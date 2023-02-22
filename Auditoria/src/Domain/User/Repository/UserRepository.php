@@ -31,7 +31,7 @@ final class UserRepository
         $query->select(
             [
                 'users.id', 
-                'r.rol'
+                'r.role'
             ]
         )->leftJoin(['r' => 'roles'], 'r.id = users.id_role');
         $query->where(['users.id' => $userId]);

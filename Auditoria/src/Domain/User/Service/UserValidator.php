@@ -47,22 +47,24 @@ final class UserValidator
                 'name' => $constraint->required(
                     [
                         $constraint->notBlank(),
-                        $constraint->length(null, 255),
+                        $constraint->length(null, 100),
                     ]
                 ),
-                'surname' => $constraint->required(
+                'surname' => $constraint->optional(
                     [
                         $constraint->notBlank(),
-                        $constraint->length(null, 10),
+                        $constraint->length(null, 100),
                         $constraint->positive(),
                     ]
                 ),
                 'email' => $constraint->required(
                     [
+                        $constraint->notBlank(),
                         $constraint->email(),
+                        $constraint->length(null, 100),
                     ]
                 ),
-                'phone' => $constraint->required(
+                'phone' => $constraint->optional(
                     [
                         $constraint->notBlank(),
                         $constraint->length(null, 11),
@@ -70,17 +72,20 @@ final class UserValidator
                 ),
                 'id_role' => $constraint->required(
                     [
-                        $constraint->notBlank()
+                        $constraint->notBlank(),
+                        $constraint->positive()
                     ]
                 ),
                 'id_condition' => $constraint->required(
                     [
-                        
+                        $constraint->notBlank(),
+                        $constraint->positive()
                     ]
                 ),
                 'id_signature' => $constraint->required(
                     [
-        
+                        $constraint->notBlank(),
+                        $constraint->positive()
                     ]
                 ),
                 'identification' => $constraint->required(
@@ -92,6 +97,7 @@ final class UserValidator
                 'pass' => $constraint->required(
                     [
                         $constraint->notBlank()
+                        
                     ]
                 )
             ]
