@@ -23,19 +23,17 @@ final class RequirementsFinderRepository
                 'format_appointment.format_appointment',
                 'users.name',
                 'users.surname',
-                'worker.id_user',
                 'state.status',
                 'requirements.created',
                 'requirements.updated'
             ]
         )  
         ->leftjoin(['format_appointment'=>'format_appointments'], 'format_appointment.id = requirements.id_format_appointment')
-        ->leftjoin(['users'=>'users'], 'users.id = requirements.id_user')
-        ->leftjoin(['worker'=>'workers'],'worker.id_user = users.id')
-        ->join()
+        ->leftjoin(['users'=>'users'], 'users.id = requirements.id_worker')
         ->leftjoin(['state'=>'status'], 'state.id = requirements.id_status');
 
-        var_dump($query->execute()->fetchAll('assoc'));
+        //var_dump($query->execute()->fetchAll('assoc') ?: []);
+        return $query->execute()->fetchAll('assoc') ?: [];
 
          
     }

@@ -31,8 +31,8 @@ final class WorkersFinderRepository
         )  
         ->leftjoin(['charge'=>'charges'], 'charge.id = workers.id_charge')
         ->leftjoin(['users'=>'users'], 'users.id = workers.id_user')
-         ->leftjoin(['state'=>'status'], 'state.id = workers.id_status')
-         ->leftjoin(['deparment'=>'deparments'],'deparment.id = workers.id_deparment');
+        ->leftjoin(['state'=>'status'], 'state.id = workers.id_status')
+        ->leftjoin(['deparment'=>'deparments'],'deparment.id = workers.id_deparment');
 
         return $query->execute()->fetchAll('assoc') ?: [];
     }

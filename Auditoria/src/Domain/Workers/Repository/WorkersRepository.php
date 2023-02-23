@@ -28,17 +28,22 @@ final class WorkersRepository
         $query = $this->queryFactory->newSelect('workers');
         $query->select(
             [
-                'id',
-                'id_charge',
-                'id_user',
-                'id_status',
-                'id_deparment',
-                'created',
-                'updated'
+                'workers.id',
+                'charge.charge',
+                'users.name',
+                'users.surname',
+                'state.status',
+                'deparment.deparment',
+                'workers.created',
+                'workers.updated'
             ]
-        );
+        )  
+        ->leftjoin(['charge'=>'charges'], 'charge.id = workers.id_charge')
+        ->leftjoin(['users'=>'users'], 'users.id = workers.id_user')
+        ->leftjoin(['state'=>'status'], 'state.id = workers.id_status')
+        ->leftjoin(['deparment'=>'deparments'],'deparment.id = workers.id_deparment');
 
-        $query->where(['id' => $workersId]);
+        $query->where(['workers.id' => $workersId]);
 
         $row = $query->execute()->fetch('assoc');
 

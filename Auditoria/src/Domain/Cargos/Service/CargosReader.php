@@ -43,7 +43,7 @@ final class CargosReader
         // Create domain result
         $result = new CargosReaderResult();
         $result->id = $cargosRow['id'];
-        $result->cargo = $cargosRow['cargo'];
+        $result->cargo = $cargosRow['charge'];
 
         return $result;
     }

@@ -23,11 +23,11 @@ final class CargosRepository
 
     public function getCargosById(int $cargosId): array
     {
-        $query = $this->queryFactory->newSelect('cargos');
+        $query = $this->queryFactory->newSelect('charges');
         $query->select(
             [
                 'id',
-                'cargo'
+                'charge'
             ]
         );
 
@@ -46,7 +46,7 @@ final class CargosRepository
     {
         $row = $this->toRow($cargos);
 
-        $this->queryFactory->newUpdate('cargos', $row)
+        $this->queryFactory->newUpdate('charges', $row)
             ->where(['id' => $cargosId])
             ->execute();
     }
@@ -69,7 +69,7 @@ final class CargosRepository
     private function toRow(array $cargos): array
     {
         return [
-            'cargo' => $cargos['cargos']
+            'charge' => $cargos['charges']
         ];
     }
 }

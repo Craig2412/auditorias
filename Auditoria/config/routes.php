@@ -10,6 +10,19 @@ return function (App $app) {
     $app->get('/', \App\Action\Home\HomeAction::class)->setName('home');
     $app->get('/dashboard', \App\Action\Home\HomeAction::class)->setName('dashboard');
 
+    //REQUEST 
+    $app->group(
+        '/requests',
+        function (RouteCollectorProxy $app) { 
+            $app->get('', \App\Action\Solicitudes\SolicitudesFinderAction::class);//Completado
+            $app->get('/{id_requirement}', \App\Action\Solicitudes\SolicitudesReaderAction::class);//Completado//ESTA TRAE LAS SOLICITUDES DE UN REQUERIMIENTO
+            $app->get('/unique/{id_request}', \App\Action\Solicitudes\SolicitudesUniqueReaderAction::class);//Completado//ESTA TRAE LA SOLICITUD UNICA DE UN REQUERIMIENTO
+            $app->post('', \App\Action\Solicitudes\SolicitudesCreatorAction::class);//Completado
+            $app->put('/{id_requirement}', \App\Action\Solicitudes\SolicitudesUpdaterAction::class);
+            $app->delete ('/{id_requirement}', \App\Action\Solicitudes\SolicitudesDeleterAction::class);
+        }
+    );
+
     //REQUIREMENTS
     $app->group(
         '/requirements',
@@ -27,7 +40,7 @@ return function (App $app) {
         '/workers',
         function (RouteCollectorProxy $app) { 
             $app->get('', \App\Action\Workers\WorkersFinderAction::class);//Completado
-            $app->get('/{id_worker}', \App\Action\Workers\WorkersReaderAction::class);
+            $app->get('/{id_worker}', \App\Action\Workers\WorkersReaderAction::class);//Completado
             $app->post('', \App\Action\Workers\WorkersCreatorAction::class);//Completado
             $app->put('/{id_worker}', \App\Action\Workers\WorkersUpdaterAction::class);
             $app->delete ('/{id_worker}', \App\Action\Workers\WorkersDeleterAction::class);
@@ -61,11 +74,11 @@ return function (App $app) {
         '/api',
         function (RouteCollectorProxy $app) {
            
-            $app->get('/customers', \App\Action\Customer\CustomerFinderAction::class);
-            $app->get('/customers/{customer_id}', \App\Action\Customer\CustomerReaderAction::class);
-            $app->post('/customers', \App\Action\Customer\CustomerCreatorAction::class);
-            $app->put('/customers/{customer_id}', \App\Action\Customer\CustomerUpdaterAction::class);
-            $app->delete('/customers/{customer_id}', \App\Action\Customer\CustomerDeleterAction::class);
+            $app->get('/customers', \App\Action\Customer\CustomerFinderAction::class);//test
+            $app->get('/customers/{customer_id}', \App\Action\Customer\CustomerReaderAction::class);//test
+            $app->post('/customers', \App\Action\Customer\CustomerCreatorAction::class);//test
+            $app->put('/customers/{customer_id}', \App\Action\Customer\CustomerUpdaterAction::class);//test
+            $app->delete('/customers/{customer_id}', \App\Action\Customer\CustomerDeleterAction::class);//test
         }
     );
 };

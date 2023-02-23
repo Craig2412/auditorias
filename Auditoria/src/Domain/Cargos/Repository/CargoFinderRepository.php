@@ -15,12 +15,12 @@ final class CargoFinderRepository
 
     public function findCustomers(): array
     {
-        $query = $this->queryFactory->newSelect('cargos');
+        $query = $this->queryFactory->newSelect('charges');
 
         $query->select(
             [
                 'id',
-                'cargo'
+                'charge'
             ]
         );
 

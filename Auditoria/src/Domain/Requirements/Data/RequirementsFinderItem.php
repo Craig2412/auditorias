@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\Requiremnets\Data;
+namespace App\Domain\Requirements\Data;
 
-final class RequiremnetsFinderItem
+final class RequirementsFinderItem
 {
     public ?int $id = null;
 
@@ -11,8 +11,6 @@ final class RequiremnetsFinderItem
     public ?string $name = null;
 
     public ?string $surname = null;
-
-    public ?string $worker   = null;
 
     public ?string $status = null;
 

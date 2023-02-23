@@ -34,14 +34,13 @@ final class RequirementsFinder
             $requirements->format_appointment = $requirementsRow['format_appointment'];
             $requirements->name = $requirementsRow['name'];
             $requirements->surname = $requirementsRow['surname'];
-            $requirements->worker = $requirementsRow['worker'];
             $requirements->status = $requirementsRow['status'];
             $requirements->created = $requirementsRow['created'];
             $requirements->updated = $requirementsRow['updated'];
 
             $result->requirements[] = $requirements;
         }
-
+//var_dump($result->requirements);
         return $result;
     }
 }

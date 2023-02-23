@@ -35,16 +35,15 @@ final class RequirementsFinderAction
     {
         $requirements = [];
 
-        foreach ($result->requirements as $requirements) {
-            $requirement[] = [
-                'id' => $requirements->id,
-                'format_appointment' => $requirements->format_appoinment,
-                'name' => $requirements->name,//user
-                'surname' => $requirements->surname,//user
-                'worker' => $requirements->worker,
-                'status' => $requirements->status,
-                'created' => $requirements->created,
-                'updated' => $requirements->updated
+        foreach ($result->requirements as $requirement) {
+            $requirements[] = [
+                'id' => $requirement->id,
+                'format_appointment' => $requirement->format_appointment,
+                'name' => $requirement->name,//worker
+                'surname' => $requirement->surname,//worker
+                'status' => $requirement->status,
+                'created' => $requirement->created,
+                'updated' => $requirement->updated
             ];
         }
 
