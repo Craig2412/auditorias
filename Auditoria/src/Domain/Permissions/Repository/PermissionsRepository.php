@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Domain\User\Repository;
+namespace App\Domain\Permissions\Repository;
 
 use App\Factory\QueryFactory;
 use DomainException;
 use App\Bcrypt\Bcrypt;
 
-final class UserRepository
+final class PermissionsRepository
 {
     private QueryFactory $queryFactory;
 
@@ -15,36 +15,38 @@ final class UserRepository
         $this->queryFactory = $queryFactory;
     }
 
-    public function insertUser(array $user): array
-    
+    public function getPermissionById(int $permissionsId): array
     {
-
-        $id = $this->queryFactory->newInsert('users', $this->toRow($user))
-            ->execute()
-            ->lastInsertId();
-            return (array)  $this->getUserById($id);
-    }
-
-    public function getUserById(int $userId): array
-    {
-        $query = $this->queryFactory->newSelect('users');
+        $query = $this->queryFactory->newSelect('permissions');
         $query->select(
             [
-                'users.id', 
-                'r.role',
-                'id_role'=>'r.id'
+                'permissions.name', 
+                'permissions.guard_name'
             ]
-        )->leftJoin(['r' => 'roles'], 'r.id = users.id_role');
-        $query->where(['users.id' => $userId]);
-
+        );
+        $query->where(['permissions.id' => $permissionsId]);
         $row = $query->execute()->fetch('assoc');
-
         if (!$row) {
-            throw new DomainException(sprintf('Customer not found: %s', $userId));
+            throw new DomainException(sprintf('Permissions not found: %s', $permissionsId));
         }
-
         return $row;
-        
+    }
+
+    public function getPermissionByRole(int $permissionsId): array
+    {
+        $query = $this->queryFactory->newSelect('permissions');
+        $query->select(
+            [
+                'permissions.name', 
+                'permissions.guard_name'
+            ]
+        );
+        $query->where(['permissions.id' => $permissionsId]);
+        $row = $query->execute()->fetch('assoc');
+        if (!$row) {
+            throw new DomainException(sprintf('Permissions not found: %s', $permissionsId));
+        }
+        return $row;
     }
 
     public function getUserLogin(string $email, string $pass): array
@@ -52,10 +54,10 @@ final class UserRepository
         $pas = new Bcrypt($pass);
         $query = $this->queryFactory->newSelect('users');
         $query->select(
-            [
-                'users.id',
-                'users.pass'
-            ]
+                [
+                    'users.id',
+                    'users.pass'
+                ]
             );
         $query->where(['users.email' => $email]);
         

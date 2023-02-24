@@ -10,7 +10,6 @@ class Auth {
 
     public static function SignIn($data) {
         $time = time();
-        var_dump($data["user_id"]);
         $token = array(
             "iss" => "http://localhost",
             "iat" =>  $time,

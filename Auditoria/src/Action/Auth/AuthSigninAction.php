@@ -30,11 +30,11 @@ final class AuthSigninAction
         $data = (array)$request->getParsedBody();
         // Invoke the Domain with inputs and retain the result
         $user = $this->userCreator->createUser($data);
-        $token = $this->tokenCreator->createToken($user);
+        $token = $this->tokenCreator->createToken(["id"=>$user["id"], "id_role"=>$user["id_role"]]);
 
         // Build the HTTP response
         return $this->renderer
-            ->json($response, ['user_data' => $user])
+            ->json($response, ['user_data' => $user['id'], 'token' => $token['token']])
             ->withStatus(StatusCodeInterface::STATUS_CREATED);
     }
 }

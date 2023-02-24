@@ -3,24 +3,21 @@
 
 use Phinx\Seed\AbstractSeed;
 
-class CRolesSeeders extends AbstractSeed
+class AConditionsSeeds extends AbstractSeed
 {
     public function run(): void
     {
         $data = [
             [
                 'id'    => 1,
-                'role'    => 'ADMINISTRADOR'
+                'condition'    => 'ACTIVO'
             ],[
                 'id'    => 2,
-                'role'    => 'USUARIO'
-            ],[
-                'id'    => 3,
-                'role'    => 'TRABAJADOR'
+                'condition'    => 'INACTIVO'
             ]
             ];
 
-        $posts = $this->table('roles');
+        $posts = $this->table('conditions');
         $posts->insert($data)
               ->saveData();
     }

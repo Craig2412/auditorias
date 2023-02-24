@@ -2,35 +2,46 @@
 
 namespace App\Action\Auth;
 
-use App\Domain\Customer\Service\CustomerCreator;
+use App\Domain\User\Service\UserLogin;
+use App\Domain\User\Data\UserLoginResult;
 use App\Renderer\JsonRenderer;
-use Fig\Http\Message\StatusCodeInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+
 
 final class AuthLoginAction
 {
     private JsonRenderer $renderer;
 
-    private CustomerCreator $customerCreator;
+    private UserLogin $userLogin;
 
-    public function __construct(CustomerCreator $customerCreator, JsonRenderer $renderer)
+    public function __construct(UserLogin $userLogin, JsonRenderer $renderer)
     {
-        $this->customerCreator = $customerCreator;
+        $this->userLogin = $userLogin;
         $this->renderer = $renderer;
     }
 
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
-    {
+    public function __invoke(
+        ServerRequestInterface $request,
+        ResponseInterface $response,
+        array $args
+        ): ResponseInterface {
         // Extract the form data from the request body
         $data = (array)$request->getParsedBody();
 
         // Invoke the Domain with inputs and retain the result
-        $customerId = $this->customerCreator->createCustomer($data);
-
-        // Build the HTTP response
-        return $this->renderer
-            ->json($response, ['customer_id' => $customerId])
-            ->withStatus(StatusCodeInterface::STATUS_CREATED);
+        $user = $this->userLogin->loginUser($data);
+        return $this->renderer->json($response, $this->transform($user));
     }
+
+    private function transform(UserLoginResult $users): array
+    {
+        return [
+            'id' => $users->id,
+            'token' => $users->token
+        ];
+    }
+    
+
+    
 }

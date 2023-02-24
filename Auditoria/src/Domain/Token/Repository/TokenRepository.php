@@ -44,6 +44,26 @@ final class TokenRepository
         return $row;
     }
 
+    public function getTokenByUser(int $userId): array
+    {
+        $query = $this->queryFactory->newSelect('tokens');
+        $query->select(
+            [
+                'id', 
+                'token'
+            ]
+            );
+        $query->where(['tokens.id_user' => $userId]);
+
+        $row = $query->execute()->fetch('assoc');
+
+        if (!$row) {
+            throw new DomainException(sprintf('Token not found: %s', $userId));
+        }
+
+        return $row;
+    }
+
     public function updateToken(int $tokenId, array $token): void
     {
         $row = $this->toRow($token);
