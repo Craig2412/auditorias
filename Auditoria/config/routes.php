@@ -10,6 +10,31 @@ return function (App $app) {
     $app->get('/', \App\Action\Home\HomeAction::class)->setName('home');
     $app->get('/dashboard', \App\Action\Home\HomeAction::class)->setName('dashboard');
 
+
+    //Appointment
+    $app->group(
+        '/appointments',
+        function (RouteCollectorProxy $app) { 
+            $app->get('', \App\Action\Appointment\AppointmentFinderAction::class);//Completado
+            $app->get('/{id_appointment}', \App\Action\Appointment\AppointmentReaderAction::class);//Completado
+            $app->post('', \App\Action\Appointment\AppointmentCreatorAction::class);//Completado
+            $app->put('/{id_appointment}', \App\Action\Appointment\AppointmentUpdaterAction::class);
+            $app->delete ('/{id_appointment}', \App\Action\Appointment\AppointmentDeleterAction::class);
+        }
+    );
+
+    //Companies
+    $app->group(
+        '/companies',
+        function (RouteCollectorProxy $app) { 
+            $app->get('', \App\Action\Companies\CompaniesFinderAction::class);//Completado
+            $app->get('/{id_company}', \App\Action\Companies\CompaniesReaderAction::class);//Completado
+            $app->post('', \App\Action\Companies\CompaniesCreatorAction::class);//Completado
+            $app->put('/{id_company}', \App\Action\Companies\CompaniesUpdaterAction::class);
+            $app->delete ('/{id_company}', \App\Action\Companies\CompaniesDeleterAction::class);
+        }
+    );
+
     //REQUEST 
     $app->group(
         '/requests',
