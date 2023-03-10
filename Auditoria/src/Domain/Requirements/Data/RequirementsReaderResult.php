@@ -8,15 +8,15 @@ final class RequirementsReaderResult
 
     public ?int $amount_request = null;
 
-    public ?int $id_format_appointment = null;
+    public ?string $format_appointment = null;
 
-    public ?int $id_user = null;
+    public ?string $name = null;//worker
 
-    public ?int $id_condition = null;
+    public ?string $surname = null;//worker
 
-    public ?int $id_status = null;
+    public ?string $condition = null;
 
-    public ?int $id_worker   = null;
+    public ?string $status = null;
 
     public ?string $created = null;
 

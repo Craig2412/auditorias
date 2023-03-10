@@ -5,7 +5,7 @@ namespace App\Domain\Companies\Repository;
 use App\Factory\QueryFactory;
 use DomainException;
 
-final class CompaniesRepository
+final class CompaniesRepositoryUpdate
 {
     private QueryFactory $queryFactory;
 
@@ -21,35 +21,13 @@ final class CompaniesRepository
             ->lastInsertId();
     }
 
-    public function getCompaniesById(int $companiesId): array
-    {
-        $query = $this->queryFactory->newSelect('companies');
-        $query->select(
-            [
-                'id',
-                'name',
-                'rif',
-                'signature'
-            ]
-        );
-
-        $query->where(['id' => $companiesId]);
-
-        $row = $query->execute()->fetch('assoc');
-
-        if (!$row) {
-            throw new DomainException(sprintf('Companies not found: %s', $companiesId));
-        }
-
-        return $row;
-    }
-
-    public function updateCompanies(int $companiesId, array $companies): void
+    public function updateCompanies(int $companiesId, array $companies): array
     {
         $row = $this->toRow($companies);
         $this->queryFactory->newUpdate('companies', $row)
             ->where(['id' => $companiesId])
             ->execute();
+            return $row;
     }
 
     public function existsCompaniesId(int $companiesId): bool
@@ -71,8 +49,7 @@ final class CompaniesRepository
     {
         return [
             'name' => $companies['name'],
-            'rif' => $companies['rif'],
-            'signature' => $companies['signature']
+            'rif' => $companies['rif']
         ];
     }
 }

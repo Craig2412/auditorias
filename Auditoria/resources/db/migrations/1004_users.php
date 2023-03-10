@@ -12,6 +12,7 @@ final class Users extends AbstractMigration{
                  ->addColumn('surname', 'string', ['limit' => 100])
                  ->addColumn('email', 'string' , ['limit' => 100])
                  ->addColumn('identification', 'string' , ['limit' => 15])
+                 ->addColumn('user_name', 'string' , ['limit' => 100])
                  ->addColumn('pass', 'string' , ['limit' => 255])
                  ->addColumn('phone', 'string' , ['limit' => 11])        
                  ->addColumn('id_role', 'integer' , ['null' => false, 'signed' => false, 'default'=> 1])

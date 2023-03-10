@@ -13,10 +13,14 @@ final class RequirementsFinderRepository
         $this->queryFactory = $queryFactory;
     }
 
-    public function findRequirements(): array
+    public function findRequirements($nro_pag,$where,$cant_registros): array
     {
+        //Paginador
+        $limit = $cant_registros;
+        $offset = ($nro_pag - 1) * $limit;
         $query = $this->queryFactory->newSelect('requirements');
-
+        //Fin Paginador
+        
         $query->select(
             [
                 'requirements.id',
@@ -27,14 +31,22 @@ final class RequirementsFinderRepository
                 'requirements.created',
                 'requirements.updated'
             ]
-        )  
+        )
+
         ->leftjoin(['format_appointment'=>'format_appointments'], 'format_appointment.id = requirements.id_format_appointment')
         ->leftjoin(['users'=>'users'], 'users.id = requirements.id_worker')
         ->leftjoin(['state'=>'status'], 'state.id = requirements.id_status');
 
-        //var_dump($query->execute()->fetchAll('assoc') ?: []);
-        return $query->execute()->fetchAll('assoc') ?: [];
+        //Paginador
+        if (!empty($where)) {
+         $query->where($where);    
+        }
+        
+        $query->offset([$offset]);
+        $query->limit([$limit]);
+        //Fin paginador
 
-         
+
+        return $query->execute()->fetchAll('assoc') ?: [];
     }
 }

@@ -15,11 +15,10 @@ final class RequirementsFinder
         $this->repository = $repository;
     }
 
-    public function findRequirements(): RequirementsFinderResult
+    public function findRequirements($nro_pag,$where,$cant_registros): RequirementsFinderResult
     {
         // Input validation
-       
-        $requirements = $this->repository->findRequirements();
+        $requirements = $this->repository->findRequirements($nro_pag,$where,$cant_registros);
 
         return $this->createResult($requirements);
     }
@@ -40,7 +39,6 @@ final class RequirementsFinder
 
             $result->requirements[] = $requirements;
         }
-//var_dump($result->requirements);
         return $result;
     }
 }

@@ -5,8 +5,10 @@ namespace App\Action\Requirements;
 use App\Domain\Requirements\Data\RequirementsFinderResult;
 use App\Domain\Requirements\Service\RequirementsFinder;
 use App\Renderer\JsonRenderer;
+use App\Action\argValidator;//Paginador
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+
 
 final class RequirementsFinderAction
 {
@@ -20,12 +22,35 @@ final class RequirementsFinderAction
         $this->renderer = $jsonRenderer;
     }
 
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        // Optional: Pass parameters from the request to the service method
-        // ...
 
-        $requirements = $this->requirementsFinder->findRequirements();
+    //Paginador
+        if (isset($args['nro_pag']) && ($args['nro_pag'] > 0)) {
+            $nro_pag = (int)$args['nro_pag'];
+        }else {
+            $nro_pag = 1;
+        }
+
+        if (isset($args['cant_registros']) && ($args['cant_registros'] > 0)) {
+            $cant_registros = $args['cant_registros'];
+        }else {
+            $cant_registros = 10;
+        }
+
+        if (isset($args['params'])) {
+            $clase_busqueda = New argValidator;
+            $params = explode('/', $args['params']);
+            $params = json_decode($params[0]);          
+            $parametros = $clase_busqueda->whereGenerate($params,'appointments');          
+        }else {
+            $parametros = null;
+        }
+
+        $appointments = $this->appointmentFinder->findAppointment($nro_pag,$parametros,$cant_registros);
+    //Fin Paginador
+    //$nro_pag,$parametros,$cant_registros
+
 
         // Transform result and render to json
         return $this->renderer->json($response, $this->transform($requirements));

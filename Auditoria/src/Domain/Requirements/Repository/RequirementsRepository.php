@@ -28,19 +28,20 @@ final class RequirementsRepository
         $query = $this->queryFactory->newSelect('requirements');
         $query->select(
             [
-                'id',
-                'amount_request',
-                'id_format_appointment',
-                'id_user',
-                'id_condition',
-                'id_status',
-                'id_worker',
-                'created',
-                'updated'
+                'requirements.id',
+                'format_appointment.format_appointment',
+                'users.name',
+                'users.surname',
+                'state.status',
+                'requirements.created',
+                'requirements.updated'
             ]
-        );
+        )  
+        ->leftjoin(['format_appointment'=>'format_appointments'], 'format_appointment.id = requirements.id_format_appointment')
+        ->leftjoin(['users'=>'users'], 'users.id = requirements.id_worker')
+        ->leftjoin(['state'=>'status'], 'state.id = requirements.id_status');
 
-        $query->where(['id' => $requirementsId]);
+        $query->where(['requirements.id' => $requirementsId]);
 
         $row = $query->execute()->fetch('assoc');
 

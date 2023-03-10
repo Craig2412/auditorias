@@ -13,9 +13,13 @@ final class AppointmentFinderRepository
         $this->queryFactory = $queryFactory;
     }
 
-    public function findAppointment(): array
+    public function findAppointment($nro_pag,$where,$cant_registros): array
     {
-        $query = $this->queryFactory->newSelect('appointments');
+        //Paginador
+            $limit = $cant_registros;
+            $offset = ($nro_pag - 1) * $limit;
+            $query = $this->queryFactory->newSelect('appointments');
+        //Fin Paginador
 
         $query->select(
             [
@@ -26,15 +30,19 @@ final class AppointmentFinderRepository
                 'format_appointment.format_appointment',
                 'appointments.created',
                 'appointments.updated'
-
             ]
         )
         ->leftjoin(['state'=>'status'], 'state.id = appointments.id_status')
         ->leftjoin(['format_appointment'=>'format_appointments'], 'format_appointment.id = appointments.id_format_appointments'); 
+        
+        //Paginador
+            if (!empty($where)) {
+                $query->where($where);    
+            }            
+            $query->offset([$offset]);
+            $query->limit([$limit]);
+        //Fin paginador
 
-        // Add more "use case specific" conditions to the query
-        // ...
-       // var_dump($query->execute()->fetchAll('assoc') ?: []);
 
         return $query->execute()->fetchAll('assoc') ?: [];
     }

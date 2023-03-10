@@ -1,7 +1,6 @@
 <?php
 
 // Define app routes
-
 use Slim\App;
 use Slim\Routing\RouteCollectorProxy;
 
@@ -11,14 +10,23 @@ return function (App $app) {
     $app->get('/dashboard', \App\Action\Home\HomeAction::class)->setName('dashboard');
 
 
+    //Status
+    $app->group(
+        '/status',
+        function (RouteCollectorProxy $app) { 
+            $app->get('/{tipo_status}', \App\Action\Status\StatusFinderAction::class);//Completado
+            $app->post('', \App\Action\Status\StatusCreatorAction::class);//
+        }
+    );
+
     //Appointment
     $app->group(
         '/appointments',
         function (RouteCollectorProxy $app) { 
-            $app->get('', \App\Action\Appointment\AppointmentFinderAction::class);//Completado
+            $app->get('/{nro_pag}/{cant_registros}[/{params:.*}]', \App\Action\Appointment\AppointmentFinderAction::class);//Completado//Paginador
             $app->get('/{id_appointment}', \App\Action\Appointment\AppointmentReaderAction::class);//Completado
             $app->post('', \App\Action\Appointment\AppointmentCreatorAction::class);//Completado
-            $app->put('/{id_appointment}', \App\Action\Appointment\AppointmentUpdaterAction::class);
+            $app->put('/{id_appointment}', \App\Action\Appointment\AppointmentUpdaterAction::class);//Completadoo
             $app->delete ('/{id_appointment}', \App\Action\Appointment\AppointmentDeleterAction::class);
         }
     );
@@ -30,7 +38,7 @@ return function (App $app) {
             $app->get('', \App\Action\Companies\CompaniesFinderAction::class);//Completado
             $app->get('/{id_company}', \App\Action\Companies\CompaniesReaderAction::class);//Completado
             $app->post('', \App\Action\Companies\CompaniesCreatorAction::class);//Completado
-            $app->put('/{id_company}', \App\Action\Companies\CompaniesUpdaterAction::class);
+            $app->put('/{id_company}', \App\Action\Companies\CompaniesUpdaterAction::class);//Completado
             $app->delete ('/{id_company}', \App\Action\Companies\CompaniesDeleterAction::class);
         }
     );
@@ -43,8 +51,8 @@ return function (App $app) {
             $app->get('/{id_requirement}', \App\Action\Solicitudes\SolicitudesReaderAction::class);//Completado//ESTA TRAE LAS SOLICITUDES DE UN REQUERIMIENTO
             $app->get('/unique/{id_request}', \App\Action\Solicitudes\SolicitudesUniqueReaderAction::class);//Completado//ESTA TRAE LA SOLICITUD UNICA DE UN REQUERIMIENTO
             $app->post('', \App\Action\Solicitudes\SolicitudesCreatorAction::class);//Completado
-            $app->put('/{id_requirement}', \App\Action\Solicitudes\SolicitudesUpdaterAction::class);
-            $app->delete ('/{id_requirement}', \App\Action\Solicitudes\SolicitudesDeleterAction::class);
+            $app->put('/{id_request}', \App\Action\Solicitudes\SolicitudesUpdaterAction::class);//Completado
+            $app->delete ('/{id_request}', \App\Action\Solicitudes\SolicitudesDeleterAction::class);
         }
     );
 
@@ -52,8 +60,8 @@ return function (App $app) {
     $app->group(
         '/requirements',
         function (RouteCollectorProxy $app) { 
-            $app->get('', \App\Action\Requirements\RequirementsFinderAction::class);//Completado
-            $app->get('/{id_requirement}', \App\Action\Requirements\RequirementsReaderAction::class);
+            $app->get('/{nro_pag}/{cant_registros}[/{params:.*}]', \App\Action\Requirements\RequirementsFinderAction::class);//Completado
+            $app->get('unique/{id_requirement}', \App\Action\Requirements\RequirementsReaderAction::class);//Completado
             $app->post('', \App\Action\Requirements\RequirementsCreatorAction::class);//Completado
             $app->put('/{id_requirement}', \App\Action\Requirements\RequirementsUpdaterAction::class);
             $app->delete ('/{id_requirement}', \App\Action\Requirements\RequirementsDeleterAction::class);
@@ -71,27 +79,27 @@ return function (App $app) {
             $app->delete ('/{id_worker}', \App\Action\Workers\WorkersDeleterAction::class);
         }
     );
-    //CATEGORIAS
+    //CATEGORIES
     $app->group(
         '/categories',
         function (RouteCollectorProxy $app) { 
             $app->get('', \App\Action\Categories\CategoriesFinderAction::class);//Completado
             $app->get('/{id_categories}', \App\Action\Categories\CategoriesReaderAction::class);
             $app->post('', \App\Action\Categories\CategoriesCreatorAction::class);//Completado
-            $app->put('/{id_categories}', \App\Action\Categories\CategoriesUpdaterAction::class);
+            $app->put('/{id_category}', \App\Action\Categories\CategoriesUpdaterAction::class);//Completado
             $app->delete ('/{id_categories}', \App\Action\Categories\CategoriesDeleterAction::class);
         }
     );
 
     //CARGOS
     $app->group(
-        '/cargos',
+        '/charges',
         function (RouteCollectorProxy $app) {            
-            $app->get('', \App\Action\Cargos\CargosFinderAction::class);//Completado
-            $app->get('/{id}', \App\Action\Cargos\CargosReaderAction::class);//Completado
-            $app->post('', \App\Action\Cargos\CargosCreatorAction::class);//Completado
-            $app->put('', \App\Action\Cargos\CargosUpdaterAction::class);
-            $app->delete ('', \App\Action\Cargos\CargosDeleterAction::class);
+            $app->get('', \App\Action\Charges\ChargesFinderAction::class);//Completado
+            $app->get('/{id_charge}', \App\Action\Charges\ChargesReaderAction::class);//Completado
+            $app->post('', \App\Action\Charges\ChargesCreatorAction::class);//Completado
+            $app->put('/{id_charge}', \App\Action\Charges\ChargesUpdaterAction::class);
+            $app->delete ('/{id_charge}', \App\Action\Charges\ChargesDeleterAction::class);
         }
     );
     // API

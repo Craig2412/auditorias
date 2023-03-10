@@ -15,12 +15,10 @@ final class AppointmentFinder
         $this->repository = $repository;
     }
 
-    public function findAppointment(): AppointmentFinderResult
+    public function findAppointment($nro_pag,$parametros,$cant_registros): AppointmentFinderResult
     {
-        // Input validation
-        // ...
 
-        $appointment = $this->repository->findAppointment();
+        $appointment = $this->repository->findAppointment($nro_pag,$parametros,$cant_registros);
 
         return $this->createResult($appointment);
     }
@@ -35,7 +33,7 @@ final class AppointmentFinder
             $appointments->appointment_date = $appointmentsRow['appointment_date'];
             $appointments->id_requirement = $appointmentsRow['id_requirement'];
             $appointments->status = $appointmentsRow['status'];
-            $appointments->format_appointments = $appointmentsRow['format_appointment'];
+            $appointments->format_appointment = $appointmentsRow['format_appointment'];
             $appointments->created = $appointmentsRow['created'];
             $appointments->updated = $appointmentsRow['updated'];
 
