@@ -4,6 +4,7 @@ namespace App\Action\Solicitudes;
 
 use App\Domain\Solicitudes\Data\SolicitudesFinderResult;
 use App\Domain\Solicitudes\Service\SolicitudesFinder;
+use App\Action\conexionSipi;
 use App\Renderer\JsonRenderer;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -24,6 +25,8 @@ final class SolicitudesFinderAction
     {
         // Optional: Pass parameters from the request to the service method
         // ...
+        $conn = New conexionSipi;
+        $conn->connecting();
 
         $solicitudes = $this->solicitudFinder->findSolicitudes();
 

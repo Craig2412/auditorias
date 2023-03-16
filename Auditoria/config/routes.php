@@ -10,12 +10,24 @@ return function (App $app) {
     $app->get('/dashboard', \App\Action\Home\HomeAction::class)->setName('dashboard');
 
 
+    //Permission
+    $app->group(
+        '/permissions',
+        function (RouteCollectorProxy $app) { 
+            $app->get('/{nro_pag}/{cant_registros}[/{params:.*}]', \App\Action\Permissions\PermissionFinderAction::class);
+            $app->get('/{id_permission}', \App\Action\Permissions\PermissionReaderAction::class);
+            $app->post('', \App\Action\Permissions\PermissionCreatorAction::class);//Completado
+            $app->put('/{id_permission}', \App\Action\Permissions\PermissionUpdaterAction::class);
+            $app->delete ('/{id_permission}', \App\Action\Permissions\PermissionDeleterAction::class);
+        }
+    );
+
     //Status
     $app->group(
         '/status',
         function (RouteCollectorProxy $app) { 
             $app->get('/{tipo_status}', \App\Action\Status\StatusFinderAction::class);//Completado
-            $app->post('', \App\Action\Status\StatusCreatorAction::class);//
+            $app->post('', \App\Action\Status\StatusCreatorAction::class);//Completado
         }
     );
 
