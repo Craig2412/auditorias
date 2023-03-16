@@ -50,7 +50,6 @@ final class AppointmentFinderAction
     //Fin Paginador
     //$nro_pag,$parametros,$cant_registros
 
-
         // Transform result and render to json
         return $this->renderer->json($response, $this->transform($appointments));
     }
