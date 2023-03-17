@@ -47,7 +47,7 @@ final class RequirementsFinderAction
             $parametros = null;
         }
 
-        $appointments = $this->appointmentFinder->findAppointment($nro_pag,$parametros,$cant_registros);
+        $requirements = $this->requirementsFinder->findRequirements($nro_pag,$parametros,$cant_registros);
     //Fin Paginador
     //$nro_pag,$parametros,$cant_registros
 
