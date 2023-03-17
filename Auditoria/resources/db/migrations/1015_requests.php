@@ -9,7 +9,7 @@ final class Requests extends AbstractMigration
     public function change(): void
     {
         $requests = $this->table('requests');
-        $requests       ->addColumn('num_request', 'string', ['limit' => 500])
+        $requests       ->addColumn('num_request', 'string', ['limit' => 500] , ['unique' => true])
                         ->addColumn('num_registry', 'string', ['limit' => 500])
                         ->addColumn('approach', 'string', ['limit' => 500])
                         ->addColumn('response', 'string', ['limit' => 500])
@@ -21,6 +21,7 @@ final class Requests extends AbstractMigration
                         ->addColumn('created', 'datetime')
                         ->addColumn('updated', 'datetime', ['null' => true])
 
+                        ->addIndex('num_request', ['unique' => true])
                         ->addIndex('id_company_represented')
                         ->addIndex('id_category')
                         ->addIndex('id_requirement')

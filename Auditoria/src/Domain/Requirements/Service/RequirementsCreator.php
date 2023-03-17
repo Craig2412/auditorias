@@ -29,10 +29,10 @@ final class RequirementsCreator
     public function createRequirements(array $data): int
     {
         // Input validation
-        $this->requirementsValidator->validateRequirements($data);
-
+            $this->requirementsValidator->validateRequirements($data[$i]);
+        
         // Insert requirements and get new requirements ID
-        $requirementsId = $this->repository->insertRequirements($data);
+            $requirementsId = $this->repository->insertRequirements($data[$i]);
 
         // Logging
         $this->logger->info(sprintf('Requirements created successfully: %s', $requirementsId));

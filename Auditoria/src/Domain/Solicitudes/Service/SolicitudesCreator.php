@@ -29,11 +29,15 @@ final class SolicitudesCreator
     public function createSolicitudes(array $data): int
     {
         // Input validation
-        $this->solicitudesValidator->validateSolicitudes($data);
+        for ($i=0; $i < count($data) ; $i++) { 
+            $this->solicitudesValidator->validateSolicitudes($data[$i]);
+        }
 
         // Insert solicitudes and get new solicitudes ID
-        $solicitudesId = $this->repository->insertSolicitudes($data);
-
+        for ($i=0; $i < count($data) ; $i++) { 
+            $solicitudesId = $this->repository->insertSolicitudes($data[$i]);
+        }
+        
         // Logging
         $this->logger->info(sprintf('Solicitudes created successfully: %s', $solicitudesId));
 

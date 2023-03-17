@@ -60,14 +60,7 @@ final class SolicitudesValidator
                 'approach' => $constraint->required(
                     [
                         $constraint->notBlank(),
-                        $constraint->length(null, 10),
-                        $constraint->positive(),
-                    ]
-                
-                ),
-                'response' => $constraint->required(
-                    [ 
-                        $constraint->length(null, 10),
+                        $constraint->length(null, 250),
                         $constraint->positive(),
                     ]
                 
@@ -89,22 +82,6 @@ final class SolicitudesValidator
                 
                 ),
                 'id_requirement' => $constraint->required(
-                    [
-                        $constraint->notBlank(),
-                        $constraint->length(null, 10),
-                        $constraint->positive(),
-                    ]
-                
-                ),
-                'id_condition' => $constraint->required(
-                    [
-                        $constraint->notBlank(),
-                        $constraint->length(null, 10),
-                        $constraint->positive(),
-                    ]
-                
-                ),
-                'id_status' => $constraint->required(
                     [
                         $constraint->notBlank(),
                         $constraint->length(null, 10),

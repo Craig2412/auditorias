@@ -84,7 +84,7 @@ final class SolicitudesRepository
             'num_request' => $solicitudes['num_request'],
             'num_registry' => $solicitudes['num_registry'],
             'approach' => $solicitudes['approach'],
-            'response' => $solicitudes['response'],
+            'response' => null,
             'id_company_represented' => $solicitudes['id_company_represented'],
             'id_category' => $solicitudes['id_category'],
             'id_requirement' => $solicitudes['id_requirement'],
