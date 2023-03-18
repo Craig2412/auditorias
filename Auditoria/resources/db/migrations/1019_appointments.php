@@ -9,7 +9,7 @@ final class appointments extends AbstractMigration
     {
         $appointments = $this->table('appointments');
         $appointments   ->addColumn('appointment_date', 'datetime')
-                        ->addColumn('id_requirement', 'integer', ['signed' => false])
+                        ->addColumn('id_requirement', 'integer', ['signed' => false] , ['unique' => true])
                         ->addColumn('id_status', 'integer',['signed' => false])
                         ->addColumn('id_format_appointments', 'integer',['signed' => false])
                         ->addColumn('created', 'datetime')

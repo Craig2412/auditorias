@@ -11,6 +11,7 @@ final class Requests extends AbstractMigration
         $requests = $this->table('requests');
         $requests       ->addColumn('num_request', 'string', ['limit' => 500] , ['unique' => true])
                         ->addColumn('num_registry', 'string', ['limit' => 500])
+                        ->addColumn('nombre_servicio', 'string', ['limit' => 500])
                         ->addColumn('approach', 'string', ['limit' => 500])
                         ->addColumn('response', 'string', ['limit' => 500])
                         ->addColumn('id_company_represented', 'integer', ['signed' => false])
