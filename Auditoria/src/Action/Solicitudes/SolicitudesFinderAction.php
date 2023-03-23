@@ -23,11 +23,7 @@ final class SolicitudesFinderAction
 
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
     {
-        // Optional: Pass parameters from the request to the service method
-        // ...
-        $conn = New conexionSipi;
-        $conn->connecting();
-
+                
         $solicitudes = $this->solicitudFinder->findSolicitudes();
 
         // Transform result and render to json

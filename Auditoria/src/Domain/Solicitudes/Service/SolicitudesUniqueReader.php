@@ -5,9 +5,8 @@ namespace App\Domain\Solicitudes\Service;
 use App\Domain\Solicitudes\Data\SolicitudesUniqueReaderResult;
 use App\Domain\Solicitudes\Repository\SolicitudesUniqueRepository;
 
-/**
- * Service.
- */
+
+
 final class SolicitudesUniqueReader
 {
     private SolicitudesUniqueRepository $repository;

@@ -50,8 +50,7 @@ final class RequirementsFinderAction
         $requirements = $this->requirementsFinder->findRequirements($nro_pag,$parametros,$cant_registros);
     //Fin Paginador
     //$nro_pag,$parametros,$cant_registros
-
-
+    
         // Transform result and render to json
         return $this->renderer->json($response, $this->transform($requirements));
     }

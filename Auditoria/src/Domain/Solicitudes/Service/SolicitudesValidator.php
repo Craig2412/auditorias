@@ -47,15 +47,7 @@ final class SolicitudesValidator
                     [
                         $constraint->length(null, 10),
                         $constraint->positive()
-                    ]
-                
-                ),
-                'num_registry' => $constraint->required(
-                    [
-                        $constraint->length(null, 10),
-                        $constraint->positive(),
-                    ]
-                
+                    ]                
                 ),
                 'approach' => $constraint->required(
                     [
@@ -63,23 +55,6 @@ final class SolicitudesValidator
                         $constraint->length(null, 250),
                         $constraint->positive(),
                     ]
-                
-                ),
-                'id_company_represented' => $constraint->required(
-                    [
-                        $constraint->notBlank(),
-                        $constraint->length(null, 10),
-                        $constraint->positive(),
-                    ]
-                
-                ),
-                'id_category' => $constraint->required(
-                    [
-                        $constraint->notBlank(),
-                        $constraint->length(null, 10),
-                        $constraint->positive(),
-                    ]
-                
                 ),
                 'id_requirement' => $constraint->required(
                     [
@@ -87,7 +62,6 @@ final class SolicitudesValidator
                         $constraint->length(null, 10),
                         $constraint->positive(),
                     ]
-                
                 )
             ]
         );

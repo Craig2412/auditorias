@@ -9,12 +9,12 @@ final class Requests extends AbstractMigration
     public function change(): void
     {
         $requests = $this->table('requests');
-        $requests       ->addColumn('num_request', 'string', ['limit' => 500] , ['unique' => true])
-                        ->addColumn('num_registry', 'string', ['limit' => 500])
+        $requests       ->addColumn('num_request', 'integer')//En caso de querer implementar este sistema en patentes, se debe quitar la rstriccion
+                        ->addColumn('num_registry', 'integer')//de 'unique' al num_requests y filtrar todo por el num_registry(nro_derecho)
                         ->addColumn('nombre_servicio', 'string', ['limit' => 500])
                         ->addColumn('approach', 'string', ['limit' => 500])
                         ->addColumn('response', 'string', ['limit' => 500])
-                        ->addColumn('id_company_represented', 'integer', ['signed' => false])
+                        ->addColumn('name', 'string', ['limit' => 100])
                         ->addColumn('id_category', 'integer', ['signed' => false])
                         ->addColumn('id_requirement', 'integer', ['signed' => false])
                         ->addColumn('id_condition', 'integer', ['signed' => false])
@@ -23,7 +23,7 @@ final class Requests extends AbstractMigration
                         ->addColumn('updated', 'datetime', ['null' => true])
 
                         ->addIndex('num_request', ['unique' => true])
-                        ->addIndex('id_company_represented')
+                        ->addIndex('num_registry', ['unique' => true])
                         ->addIndex('id_category')
                         ->addIndex('id_requirement')
                         ->addIndex('id_condition')

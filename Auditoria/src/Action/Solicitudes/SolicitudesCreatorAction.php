@@ -4,7 +4,6 @@ namespace App\Action\Solicitudes;
 
 use App\Domain\Solicitudes\Service\SolicitudesCreator;
 use App\Renderer\JsonRenderer;
-use App\Action\conexionSipi;
 use Cake\Database\Connection;
 use Fig\Http\Message\StatusCodeInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -27,7 +26,7 @@ final class SolicitudesCreatorAction
         // Extract the form data from the request body
         $data = (array)$request->getParsedBody();
         // Check connection
-      
+        
         // Invoke the Domain with inputs and retain the result
         $solicitudesId = $this->solicitudesCreator->createSolicitudes($data);
         

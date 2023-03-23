@@ -86,7 +86,7 @@ final class SolicitudesRepository
             'approach' => $solicitudes['approach'],
             'response' => null,
             'id_company_represented' => $solicitudes['id_company_represented'],
-            'id_category' => $solicitudes['id_category'],
+            'name' => $solicitudes['name'],
             'id_requirement' => $solicitudes['id_requirement'],
             'id_condition' =>1,
             'id_status' => 6,

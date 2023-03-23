@@ -62,6 +62,7 @@ return function (App $app) {
         '/requests',
         function (RouteCollectorProxy $app) { 
             $app->get('', \App\Action\Solicitudes\SolicitudesFinderAction::class);//Completado
+            $app->get('/consult/{num_request}', \App\Action\Solicitudes\SolicitudesConsultReaderAction::class);//Se conecta con el sipi y devuelve los datos de un numero de solicitud
             $app->get('/{id_requirement}', \App\Action\Solicitudes\SolicitudesReaderAction::class);//Completado//ESTA TRAE LAS SOLICITUDES DE UN REQUERIMIENTO
             $app->get('/unique/{id_request}', \App\Action\Solicitudes\SolicitudesUniqueReaderAction::class);//Completado//ESTA TRAE LA SOLICITUD UNICA DE UN REQUERIMIENTO
             $app->post('', \App\Action\Solicitudes\SolicitudesCreatorAction::class);//Completado
