@@ -11,6 +11,17 @@ return function (App $app) {
     $app->get('/', \App\Action\Home\HomeAction::class)->setName('home');
     $app->get('/dashboard', \App\Action\Home\HomeAction::class)->setName('dashboard');
 
+    //USERS
+    $app->group(
+        '/users',
+        function (RouteCollectorProxy $app) { 
+            $app->get('', \App\Action\Users\UsersFinderAction::class);//
+            $app->get('/{id_user}', \App\Action\Users\UsersReaderAction::class);
+            $app->post('', \App\Action\Users\UsersCreatorAction::class);//
+            $app->put('/{id_user}', \App\Action\Users\UsersUpdaterAction::class);//
+            $app->delete ('/{id_users}', \App\Action\Users\UsersDeleterAction::class);
+        }
+    );
 
     //Permission
     $app->group(

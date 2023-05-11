@@ -24,9 +24,10 @@ final class RequirementsCreatorAction
     {
         // Extract the form data from the request body
         $data = (array)$request->getParsedBody();
+        //var_dump($data[0]);
 
         // Invoke the Domain with inputs and retain the result
-        $requirementsId = $this->requirementsCreator->createRequirements($data);
+        $requirementsId = $this->requirementsCreator->createRequirements($data[0]);
 
         // Build the HTTP response
         return $this->renderer

@@ -46,7 +46,7 @@ final class RequirementsValidator
                 'amount_requests' => $constraint->required(
                     [
                         $constraint->notBlank(),
-                        $constraint->length(null, 2),
+                        $constraint->length(1, 2),
                         $constraint->positive(),
                     ]
                 ),
