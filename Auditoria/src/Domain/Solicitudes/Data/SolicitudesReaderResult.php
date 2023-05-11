@@ -14,9 +14,7 @@ final class SolicitudesReaderResult
     public ?string $approach = null;
     
     public ?string $response = null;
-    
-    public ?string $company = null;
-    
+        
     public ?string $category = null;
     
     public ?string $condition = null;

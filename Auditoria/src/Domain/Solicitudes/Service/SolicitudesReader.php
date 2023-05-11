@@ -47,7 +47,6 @@ final class SolicitudesReader
             $sol->num_registry = $solicitudRows['num_registry'];
             $sol->approach = $solicitudRows['approach'];
             $sol->response = $solicitudRows['response'];
-            $sol->company = $solicitudRows['name'];
             $sol->category = $solicitudRows['category'];
             $sol->condition = $solicitudRows['condition'];
             $sol->status = $solicitudRows['status'];

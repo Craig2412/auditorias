@@ -40,8 +40,8 @@ final class SolicitudesConsultReaderAction
         return [
             'nro_derecho' => $solicitudesConsult->nro_derecho,
             'solicitud' => $solicitudesConsult->solicitud,
-            'nombre' => $solicitudesConsult->nombre,
-            'estatus' => $solicitudesConsult->estatus
+            'name' => $solicitudesConsult->nombre,
+            'categorie' => $solicitudesConsult->estatus
         ];
     }
 }

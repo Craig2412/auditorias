@@ -46,7 +46,6 @@ final class SolicitudesReaderAction
                 'num_registry' => $solicitudes->num_registry,
                 'approach' => $solicitudes->approach,
                 'response' => $solicitudes->response,
-                'company' => $solicitudes->company,
                 'category' => $solicitudes->category,
                 'condition' => $solicitudes->condition,
                 'status' => $solicitudes->status,
