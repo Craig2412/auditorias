@@ -8,14 +8,25 @@ use Slim\Routing\RouteCollectorProxy;
 
 return function (App $app) {
     // Redirect to Swagger documentation
+    $app->post('/login', 'App\Application\Action\Login\LoginController::class')->setName('apiLogin');
     $app->get('/', \App\Action\Home\HomeAction::class)->setName('home');
     $app->get('/dashboard', \App\Action\Home\HomeAction::class)->setName('dashboard');
+
+    
+    //Auth
+    $app->group(
+        '/auth',
+        function (RouteCollectorProxy $app) { 
+            $app->post('/user/create', \App\Action\Auth\AuthSigninAction::class);
+            $app->post('/user/authentication', \App\Action\Auth\AuthLoginAction::class);
+        }
+    );
 
     //USERS
     $app->group(
         '/users',
         function (RouteCollectorProxy $app) { 
-            $app->get('', \App\Action\Users\UsersFinderAction::class);//
+            $app->get('', \App\Action\Users\UsersFinderAction::class);//Completado 
             $app->get('/{id_user}', \App\Action\Users\UsersReaderAction::class);
             $app->post('', \App\Action\Users\UsersCreatorAction::class);//
             $app->put('/{id_user}', \App\Action\Users\UsersUpdaterAction::class);//

@@ -10,14 +10,14 @@ class Auth {
 
     public static function SignIn($data) {
         $time = time();
-
         $token = array(
             "iss" => "http://localhost",
             "iat" =>  $time,
             "exp" => $time+43200,
             'aud' => self::Aud(),
             'data' => [
-                "user_id" => $data["user_login"],
+                "user_id" => $data["user_id"],
+                "scope" => $data['scope']
             ]
         );
 
