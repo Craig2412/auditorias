@@ -10,8 +10,8 @@ class HUsuariosSeeders extends AbstractSeed
         $data = [
             [
                 'id'    => 1,
-                'nombre'    => 'Alex',
-                'apellido'    => 'Aular',
+                'nombre'    => 'ALEX',
+                'apellido'    => 'AULAR',
                 'correo'    => 'aularalexander55@gmail.com',
                 'identificacion'    => 'V027038431',
                 'clave'    => 'V027038432',
@@ -22,8 +22,8 @@ class HUsuariosSeeders extends AbstractSeed
                 'updated' => null
             ],[
                 'id'    => 2,
-                'nombre'    => 'Ely',
-                'apellido'    => 'Chirivella',
+                'nombre'    => 'ELY',
+                'apellido'    => 'CHIRIVELLA',
                 'correo'    => 'elychirivella10@gmail.com',
                 'identificacion'    => 'V027038432',
                 'clave'    => 'V027038432',
@@ -34,8 +34,8 @@ class HUsuariosSeeders extends AbstractSeed
                 'updated' => null
             ],[
                 'id'    => 3,
-                'nombre'    => 'Admin',
-                'apellido'    => 'Registro',
+                'nombre'    => 'ADMIN',
+                'apellido'    => 'REGISTRO',
                 'correo'    => 'direccion.registro@gmail.com',
                 'identificacion'    => 'G200083999',
                 'clave'    => 'G200083999',
