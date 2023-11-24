@@ -208,6 +208,14 @@ class LEstadosPaises extends AbstractSeed
                 'id_condicion' => 1,
                 'created' => date('Y-m-d H:i:s'),
                 'updated' => null
+            ],
+            [
+                'id'    => 26,
+                'estado_pais'    => 'N/A',
+                'id_pais'    => 95,
+                'id_condicion' => 1,
+                'created' => date('Y-m-d H:i:s'),
+                'updated' => null
             ]
            
         ];
