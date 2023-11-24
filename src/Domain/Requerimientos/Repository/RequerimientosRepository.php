@@ -108,6 +108,7 @@ final class RequerimientosRepository
            
         ];
     }
+
     private function toRowUpdate(array $requerimientos): array
     {
         return [
@@ -121,4 +122,4 @@ final class RequerimientosRepository
            
         ];
     }
-}
+} 
