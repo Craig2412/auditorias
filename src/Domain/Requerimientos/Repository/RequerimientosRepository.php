@@ -54,7 +54,7 @@ final class RequerimientosRepository
         ->leftjoin(['paises'=>'paises'], 'paises.id = requerimientos.id_pais')
         ->leftjoin(['estados_paises'=>'estados_paises'], 'estados_paises.id = requerimientos.id_estado_pais')
         ->leftjoin(['estados'=>'estados'], 'estados.id = requerimientos.id_estado');
-        
+
         $query->where(['requerimientos.id_condicion' => 1,'requerimientos.id' => $requerimientosId]);
 
 
@@ -100,6 +100,8 @@ final class RequerimientosRepository
             'id_usuario' => $requerimientos['id_usuario'],
             'id_condicion' => 1,
             'id_estado' => $requerimientos['id_estado'],
+            'id_estado_pais' => $requerimientos['id_estado_pais'],
+            'id_pais' => $requerimientos['id_pais'],
             'id_trabajador' => $requerimientos['id_trabajador'],
             'created' =>$this->fecha,
             'updated' => null
@@ -112,6 +114,8 @@ final class RequerimientosRepository
             'id_formato_cita' => $requerimientos['id_formato_cita'],
             'id_condicion' => $requerimientos['id_condicion'],
             'id_estado' => $requerimientos['id_estado'],
+            'id_estado_pais' => $requerimientos['id_estado_pais'],
+            'id_pais' => $requerimientos['id_pais'],
             'id_trabajador' => $requerimientos['id_trabajador'],
             'updated' => $this->fecha
            

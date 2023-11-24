@@ -53,6 +53,10 @@ final class RequerimientosReader
             $result->apellido = $requerimientosRow['apellido'];
             $result->name = $requerimientosRow['name'];
             $result->identificacion = $requerimientosRow['identificacion'];
+            $result->id_pais = $requerimientosRow['id_pais'];
+            $result->pais = $requerimientosRow['pais'];
+            $result->id_estado_pais = $requerimientosRow['id_estado_pais'];
+            $result->estado_pais = $requerimientosRow['estado_pais'];
             $result->id_trabajador = $requerimientosRow['id_trabajador'];
             $result->estado = $requerimientosRow['estado'];
             $result->created = $requerimientosRow['created'];

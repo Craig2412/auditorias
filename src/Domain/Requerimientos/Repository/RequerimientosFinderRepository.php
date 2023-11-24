@@ -58,7 +58,7 @@ final class RequerimientosFinderRepository
         $query->offset([$offset]);
         $query->limit([$limit]);
         //Fin paginador
-
+        
 
         return $query->execute()->fetchAll('assoc') ?: [];
     }
