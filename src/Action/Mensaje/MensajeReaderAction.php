@@ -42,8 +42,9 @@ final class MensajeReaderAction
             'mensaje' => $mensaje->mensaje,
             'id_usuario' => $mensaje->id_usuario,
             'nombre' => $mensaje->nombre,
+            'apellido' => $mensaje->apellido,
             'id_solicitud' => $mensaje->id_solicitud,
-            'titulo' => $mensaje->titulo,
+            'id_condicion' => $mensaje->id_condicion,
             'created' => $mensaje->created,
             'updated' => $mensaje->updated
         ];

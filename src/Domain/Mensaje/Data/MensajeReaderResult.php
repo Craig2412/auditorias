@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Domain\Note\Data;
+namespace App\Domain\Mensaje\Data;
 
-final class NoteReaderResult
+final class MensajeReaderResult
 {
     public ?int $id = null;
     public ?string $mensaje = null;
     public ?int $id_usuario = null;
     public ?string $nombre = null;
+    public ?string $apellido = null;
     public ?int $id_solicitud = null;
-    public ?string $titulo = null;
+    public ?int $id_condicion = null;
     public ?string $created = null;
     public ?string $updated = null;
 }

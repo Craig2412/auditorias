@@ -30,19 +30,18 @@ final class MensajeRepository
         $query->select(
             [
                 'mensajes.id',
-                'mensajes.note',
+                'mensajes.mensaje',
                 'mensajes.id_usuario',
-                'usuarios.name',
+                'usuarios.nombre',
+                'usuarios.apellido',
                 'mensajes.id_solicitud',
-                'solicitudes.titulo',
                 'mensajes.created',
                 'mensajes.updated'
             ]
         )
-        ->leftjoin(['usuarios'=>'usuarios'], 'usuarios.id = mensajes.id_usuario')
-        ->leftjoin(['solicitudes'=>'solicitudes'], 'solicitudes.id = mensajes.id_solicitud');
+        ->leftjoin(['usuarios'=>'usuarios'], 'usuarios.id = mensajes.id_usuario');
 
-        $query->where(['mensajes.id' => $mensajeId]);
+        $query->where(['mensajes.id_condicion' => 1,'mensajes.id' => $mensajeId]);
 
         $row = $query->execute()->fetch('assoc');
 
@@ -83,6 +82,7 @@ final class MensajeRepository
             'mensaje' => strtoupper($mensaje['mensaje']),
             'id_usuario' => $mensaje['id_usuario'],
             'id_solicitud' => $mensaje['id_solicitud'],
+            'id_condicion' => $mensaje['id_condicion'],
             'created' => $this->fecha,
             'updated' => null
         ];
@@ -92,6 +92,7 @@ final class MensajeRepository
     {        
         return [
             'mensaje' => strtoupper($mensaje['mensaje']),
+            'id_condicion' => $mensaje['id_condicion'],
             'updated' => $this->fecha
         ];
     }

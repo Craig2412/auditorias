@@ -121,21 +121,20 @@ return function (App $app) {
     
    //Mensajes
    $app->group(
-    '/mensajes',
-    function (RouteCollectorProxy $app) { 
-        $app->get('/unique/{id_mensaje}', \App\Action\Mensaje\MensajeReaderAction::class);//
-        $app->get('/{id_solicitud}/{nro_pag}/{cant_registros}', \App\Action\Mensaje\MensajeFinderAction::class);//
-        $app->post('', \App\Action\Mensaje\MensajeCreatorAction::class);//
-        $app->put('/{mensaje_id}', \App\Action\Mensaje\MensajeUpdaterAction::class);//
-        $app->delete ('/{mensaje_id}', \App\Action\Mensaje\MensajeDeleterAction::class);//
-    }
-);
+        '/mensajes',
+        function (RouteCollectorProxy $app) { 
+            $app->get('/unique/{id_mensaje}', \App\Action\Mensaje\MensajeReaderAction::class);//
+            $app->get('/{id_solicitud}/{nro_pag}/{cant_registros}', \App\Action\Mensaje\MensajeFinderAction::class);//
+            $app->post('', \App\Action\Mensaje\MensajeCreatorAction::class);//completed
+            $app->put('/{mensaje_id}', \App\Action\Mensaje\MensajeUpdaterAction::class);//completed
+            $app->delete ('/{mensaje_id}', \App\Action\Mensaje\MensajeDeleterAction::class);//completed
+        }
+    );
 
    // API
     $app->group(
         '/api',
         function (RouteCollectorProxy $app) {
-           
             $app->get('/customers', \App\Action\Customer\CustomerFinderAction::class);//test
             $app->get('/customers/{customer_id}', \App\Action\Customer\CustomerReaderAction::class);//test
             $app->post('/customers', \App\Action\Customer\CustomerCreatorAction::class);//test

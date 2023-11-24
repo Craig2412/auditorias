@@ -22,6 +22,14 @@ final class RequerimientosFinderItem
 
     public ?string $identificacion = null;
 
+    public ?string $estado_pais = null;
+
+    public ?string $pais = null;
+
+    public ?int $id_pais = null;
+
+    public ?int $id_estado_pais = null;
+
     public ?string $estado = null;
 
     public ?string $created = null;

@@ -34,8 +34,9 @@ final class MensajeFinder
             $mensaje->mensaje = $mensajeRow['mensaje'];
             $mensaje->id_usuario = $mensajeRow['id_usuario'];
             $mensaje->nombre = $mensajeRow['nombre'];
+            $mensaje->apellido = $mensajeRow['apellido'];
             $mensaje->id_solicitud = $mensajeRow['id_solicitud'];
-            $mensaje->titulo = $mensajeRow['titulo'];
+            $mensaje->id_condicion = $mensajeRow['id_condicion'];
             $mensaje->created = $mensajeRow['created'];
             $mensaje->updated = $mensajeRow['updated'];
 

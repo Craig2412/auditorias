@@ -58,8 +58,9 @@ final class MensajeFinderAction
                 'mensaje' => $mensaje->mensaje,
                 'id_usuario' => $mensaje->id_usuario,
                 'nombre' => $mensaje->nombre,
+                'apellido' => $mensaje->apellido,
                 'id_solicitud' => $mensaje->id_solicitud,
-                'titulo' => $mensaje->titulo,
+                'id_condicion' => $mensaje->id_condicion,
                 'created' => $mensaje->created,
                 'updated' => $mensaje->updated
             ];
@@ -70,6 +71,7 @@ final class MensajeFinderAction
         ];
     }
 }
+
 /*
 
 En el código que analizamos anteriormente, la variable $args debe tener un parámetro llamado 'params' que contenga un valor específico. Este valor debe ser una cadena de texto en formato JSON. Por lo tanto, para enviar el valor adecuado en la variable $args['params'], debes asegurarte de que sea una cadena de texto en formato JSON válido. 

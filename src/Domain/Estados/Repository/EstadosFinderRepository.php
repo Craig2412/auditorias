@@ -26,8 +26,7 @@ final class EstadosFinderRepository
             ]
 
         )
-        ->leftjoin(['agrupaciones'=>'agrupaciones'], 'agrupaciones.id = estados.id_agrupacion')
-        ;
+        ->leftjoin(['agrupaciones'=>'agrupaciones'], 'agrupaciones.id = estados.id_agrupacion');
 
         $query->where(['estados.id_condicion' => 1]);
 

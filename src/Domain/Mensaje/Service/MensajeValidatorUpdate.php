@@ -47,6 +47,12 @@ final class MensajeValidatorUpdate
                     [
                         $constraint->notBlank(),
                         $constraint->length(1,300),
+                    ]),
+                'id_condicion' => $constraint->required(
+                    [
+                        $constraint->notBlank(),
+                        $constraint->length(1,2),
+                        $constraint->positive()
                     ])
             ]
         );

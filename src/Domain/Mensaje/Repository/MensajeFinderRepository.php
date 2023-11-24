@@ -24,19 +24,18 @@ final class MensajeFinderRepository
         $query->select(
             [
                 'mensajes.id',
-                'mensajes.note',
+                'mensajes.mensaje',
                 'mensajes.id_usuario',
-                'usuarios.name',
+                'usuarios.nombre',
+                'usuarios.apellido',
                 'mensajes.id_solicitud',
-                'solicitudes.titulo',
                 'mensajes.created',
                 'mensajes.updated'
             ]
         )
-        ->leftjoin(['usuarios'=>'usuarios'], 'usuarios.id = mensajes.id_usuario')
-        ->leftjoin(['solicitudes'=>'solicitudes'], 'solicitudes.id = mensajes.id_solicitud');
+        ->leftjoin(['usuarios'=>'usuarios'], 'usuarios.id = mensajes.id_usuario');
 
-        $query->where(['mensajes.id_solicitud' => $taskId]);    
+        $query->where(['mensajes.id_condicion' => 1,'mensajes.id_solicitud' => $taskId]);    
 
         //Paginador
         

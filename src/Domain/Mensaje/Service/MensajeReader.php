@@ -45,12 +45,12 @@ final class MensajeReader
             $result->mensaje = $mensajeRow['mensaje'];
             $result->id_usuario = $mensajeRow['id_usuario'];
             $result->nombre = $mensajeRow['nombre'];
+            $result->apellido = $mensajeRow['apellido'];
             $result->id_solicitud = $mensajeRow['id_solicitud'];
-            $result->titulo = $mensajeRow['titulo'];
+            $result->id_condicion = $mensajeRow['id_condicion'];
             $result->created = $mensajeRow['created'];
             $result->updated = $mensajeRow['updated'];
 
-            
         return $result;
     }
 }

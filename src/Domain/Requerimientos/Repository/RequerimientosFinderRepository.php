@@ -29,6 +29,10 @@ final class RequerimientosFinderRepository
                 'requerimientos.id_estado',
                 'requerimientos.id_condicion',
                 'requerimientos.id_usuario',
+                'requerimientos.id_pais',
+                'requerimientos.id_estado_pais',
+                'paises.pais',
+                'estados_paises.estado_pais',
                 'usuarios.nombre',
                 'usuarios.apellido',
                 'usuarios.identificacion',
@@ -41,8 +45,9 @@ final class RequerimientosFinderRepository
 
         ->leftjoin(['formato_citas'=>'formato_citas'], 'formato_citas.id = requerimientos.id_formato_cita')
         ->leftjoin(['usuarios'=>'usuarios'], 'usuarios.id = requerimientos.id_usuario')
-        ->leftjoin(['estados'=>'estados'], 'estados.id = requerimientos.id_estado')
-        ;
+        ->leftjoin(['paises'=>'paises'], 'paises.id = requerimientos.id_pais')
+        ->leftjoin(['estados_paises'=>'estados_paises'], 'estados_paises.id = requerimientos.id_estado_pais')
+        ->leftjoin(['estados'=>'estados'], 'estados.id = requerimientos.id_estado');
 
         //Paginador
         if (!empty($where)) {

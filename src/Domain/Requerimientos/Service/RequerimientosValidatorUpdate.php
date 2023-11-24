@@ -64,6 +64,20 @@ final class RequerimientosValidatorUpdate
                         $constraint->positive()
                     ]
                 ),
+                'id_pais' => $constraint->required(
+                    [
+                        $constraint->notBlank(),
+                        $constraint->length(1,10),
+                        $constraint->positive()
+                    ]
+                ),
+                'id_estado_pais' => $constraint->required(
+                    [
+                        $constraint->notBlank(),
+                        $constraint->length(1,10),
+                        $constraint->positive()
+                    ]
+                ),
                 'id_trabajador' => $constraint->required(
                     [
                         $constraint->notBlank(),

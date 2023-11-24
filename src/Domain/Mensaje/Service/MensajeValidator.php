@@ -54,6 +54,12 @@ final class MensajeValidator
                         $constraint->length(1,2),
                         $constraint->positive()
                     ]),
+                'id_condicion' => $constraint->required(
+                    [
+                        $constraint->notBlank(),
+                        $constraint->length(1,2),
+                        $constraint->positive()
+                    ]),
                 'id_solicitud' => $constraint->required(
                     [
                         $constraint->notBlank(),
