@@ -11,7 +11,7 @@ final class RequerimientosRepository
 
     public function __construct(QueryFactory $queryFactory)
     {
-        $this->fecha = date("Y-m-d H:i:s" , time() - 21600); // Aca esta la fecha del dia (UNIX) menos 5  horas por el uso horario de venezuela
+        $this->fecha = date("Y-m-d H:i:s" , time() - 18000); // Aca esta la fecha del dia (UNIX) menos 5  horas por el uso horario de venezuela
         $this->queryFactory = $queryFactory;
 
     }
@@ -105,7 +105,6 @@ final class RequerimientosRepository
             'id_trabajador' => $requerimientos['id_trabajador'],
             'created' =>$this->fecha,
             'updated' => null
-           
         ];
     }
 
@@ -119,7 +118,6 @@ final class RequerimientosRepository
             'id_pais' => $requerimientos['id_pais'],
             'id_trabajador' => $requerimientos['id_trabajador'],
             'updated' => $this->fecha
-           
         ];
     }
 } 

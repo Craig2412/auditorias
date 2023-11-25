@@ -24,13 +24,19 @@ return function (App $app) {
         }
     );
  
-    //User
-    $app->group(
-        '/usuario',
-        function (RouteCollectorProxy $app) { 
-            $app->post('/token', \App\Action\Users\UsersFinderAction::class);
-        }
-    );
+    //Usuarios
+   $app->group(
+    '/usuarios',
+    function (RouteCollectorProxy $app) { 
+        $app->post('/token', \App\Action\Users\UsersFinderAction::class);
+
+        $app->get('/{id_usuario}', \App\Action\Usuario\UsuarioReaderAction::class);//completed
+        $app->get('/{nro_pag}/{cant_registros}', \App\Action\Usuario\UsuarioFinderAction::class);//completed
+        $app->post('', \App\Action\Usuario\UsuarioCreatorAction::class);//completed
+        $app->put('/{usuario_id}', \App\Action\Usuario\UsuarioUpdaterAction::class);//completed
+        $app->delete ('/{usuario_id}', \App\Action\Usuario\UsuarioDeleterAction::class);//completed
+    }
+);
 
     //Permisos
     $app->group(
@@ -123,23 +129,15 @@ return function (App $app) {
    $app->group(
         '/mensajes',
         function (RouteCollectorProxy $app) { 
-            $app->get('/unique/{id_mensaje}', \App\Action\Mensaje\MensajeReaderAction::class);//
-            $app->get('/{id_solicitud}/{nro_pag}/{cant_registros}', \App\Action\Mensaje\MensajeFinderAction::class);//
+            $app->get('/unique/{id_mensaje}', \App\Action\Mensaje\MensajeReaderAction::class);//completed
+            $app->get('/{id_solicitud}/{nro_pag}/{cant_registros}', \App\Action\Mensaje\MensajeFinderAction::class);//completed
             $app->post('', \App\Action\Mensaje\MensajeCreatorAction::class);//completed
             $app->put('/{mensaje_id}', \App\Action\Mensaje\MensajeUpdaterAction::class);//completed
             $app->delete ('/{mensaje_id}', \App\Action\Mensaje\MensajeDeleterAction::class);//completed
         }
     );
 
-   // API
-    $app->group(
-        '/api',
-        function (RouteCollectorProxy $app) {
-            $app->get('/customers', \App\Action\Customer\CustomerFinderAction::class);//test
-            $app->get('/customers/{customer_id}', \App\Action\Customer\CustomerReaderAction::class);//test
-            $app->post('/customers', \App\Action\Customer\CustomerCreatorAction::class);//test
-            $app->put('/customers/{customer_id}', \App\Action\Customer\CustomerUpdaterAction::class);//test
-            $app->delete('/customers/{customer_id}', \App\Action\Customer\CustomerDeleterAction::class);//test
-        }
-    );
+   
+
+  
 };
