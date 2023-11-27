@@ -138,6 +138,26 @@ return function (App $app) {
     );
 
    
+    // Formato_Citas
+        $app->group(
+            '/formato_citas',
+            function (RouteCollectorProxy $app) {
+                $app->get('', \App\Action\Formato_Citas\Formato_CitasFinderAction::class);//completed
+                $app->get('/{formato_citas_id}', \App\Action\Formato_Citas\Formato_CitasReaderAction::class);//completed
+                $app->post('', \App\Action\Formato_Citas\Formato_CitasCreatorAction::class);//completed
+                $app->put('/{formato_citas_id}', \App\Action\Formato_Citas\Formato_CitasUpdaterAction::class);//completed
+                $app->delete('/{formato_citas_id}', \App\Action\Formato_Citas\Formato_CitasDeleterAction::class);//completed
+            }
+        );
 
+
+    // Estados_Paises
+        $app->group(
+            '/estados_paises',
+            function (RouteCollectorProxy $app) {
+                $app->get('', \App\Action\Estados_Paises\Estados_PaisesFinderAction::class);//completed
+                $app->get('/{estado_pais_id}', \App\Action\Estados_Paises\Estados_PaisesReaderAction::class);//completed
+            }
+        );
   
 };
