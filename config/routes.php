@@ -159,5 +159,14 @@ return function (App $app) {
                 $app->get('/{estado_pais_id}', \App\Action\Estados_Paises\Estados_PaisesReaderAction::class);//completed
             }
         );
+
+    // Paises
+        $app->group(
+            '/paises',
+            function (RouteCollectorProxy $app) {
+                $app->get('', \App\Action\Paises\PaisesFinderAction::class);//
+                $app->get('/{pais_id}', \App\Action\Paises\PaisesReaderAction::class);//
+            }
+        );
   
 };
