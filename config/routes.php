@@ -168,5 +168,18 @@ return function (App $app) {
                 $app->get('/{pais_id}', \App\Action\Paises\PaisesReaderAction::class);//
             }
         );
+
+
+        // Roles
+        $app->group(
+            '/roles',
+            function (RouteCollectorProxy $app) {
+                $app->get('', \App\Action\Roles\RolesFinderAction::class);//
+                $app->get('/{rol_id}', \App\Action\Roles\RolesReaderAction::class);//
+                $app->post('', \App\Action\Roles\RolesCreatorAction::class);//
+                $app->put('/{rol_id}', \App\Action\Roles\RolesUpdaterAction::class);//
+                $app->delete('/{rol_id}', \App\Action\Roles\RolesDeleterAction::class);//
+            }
+        );
   
 };
