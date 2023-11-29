@@ -49,7 +49,7 @@ final class SolicitudesValidator
                         $constraint->positive()
                     ]                
                 ),
-                'num_registro' => $constraint->required(
+                'num_registro' => $constraint->optional(
                     [
                         $constraint->notBlank(),
                         $constraint->length(7, 7),
