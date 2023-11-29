@@ -193,5 +193,15 @@ return function (App $app) {
                 $app->delete('/{token_id}', \App\Action\Tokens\TokensDeleterAction::class);//
             }
         );
+
+        // EstatusCategoria
+        $app->group(
+            '/estatusCategoria',
+            function (RouteCollectorProxy $app) {
+                $app->get('', \App\Action\EstatusCategoria\EstatusCategoriaFinderAction::class);//
+                $app->get('/{estatus_id}', \App\Action\EstatusCategoria\EstatusCategoriaReaderAction::class);//
+            }
+        );
+       
   
 };
