@@ -90,7 +90,7 @@ return function (App $app) {
     $app->group(
         '/solicitudes',
         function (RouteCollectorProxy $app) { 
-            $app->get('', \App\Action\Solicitudes\SolicitudesFinderAction::class);//completed
+            $app->get('', \App\Action\Solicitudes\SolicitudesFinderAction::class);//completed    LISTA DE SOLICITUDES SIN DISCRIMINACION
             $app->get('/consulta/{nro_solicitud}', \App\Action\Solicitudes\SolicitudesConsultaReaderAction::class);//completed          //Se conecta con el sipi y devuelve los datos de un numero de solicitud
             $app->get('/{id_requerimiento}', \App\Action\Solicitudes\SolicitudesReaderAction::class);//completed           //ESTA TRAE LAS SOLICITUDES DE UN REQUERIMIENTO
             $app->get('/unicas/{id_solicitud}', \App\Action\Solicitudes\SolicitudesUnicasReaderAction::class);//completed        //ESTA TRAE LA SOLICITUD UNICA DE UN REQUERIMIENTO
@@ -172,13 +172,25 @@ return function (App $app) {
 
         // Roles
         $app->group(
-            '/roles',
+            '/tokenes',
             function (RouteCollectorProxy $app) {
                 $app->get('', \App\Action\Roles\RolesFinderAction::class);//
-                $app->get('/{rol_id}', \App\Action\Roles\RolesReaderAction::class);//
+                $app->get('/{token_id}', \App\Action\Roles\RolesReaderAction::class);//
                 $app->post('', \App\Action\Roles\RolesCreatorAction::class);//
-                $app->put('/{rol_id}', \App\Action\Roles\RolesUpdaterAction::class);//
-                $app->delete('/{rol_id}', \App\Action\Roles\RolesDeleterAction::class);//
+                $app->put('/{token_id}', \App\Action\Roles\RolesUpdaterAction::class);//
+                $app->delete('/{token_id}', \App\Action\Roles\RolesDeleterAction::class);//
+            }
+        );
+
+        // Tokens
+        $app->group(
+            '/tokens',
+            function (RouteCollectorProxy $app) {
+                $app->get('', \App\Action\Tokens\TokensFinderAction::class);//
+                $app->get('/{token_id}', \App\Action\Tokens\TokensReaderAction::class);//
+                $app->post('', \App\Action\Tokens\TokensCreatorAction::class);//
+                $app->put('/{token_id}', \App\Action\Tokens\TokensUpdaterAction::class);//
+                $app->delete('/{token_id}', \App\Action\Tokens\TokensDeleterAction::class);//
             }
         );
   
