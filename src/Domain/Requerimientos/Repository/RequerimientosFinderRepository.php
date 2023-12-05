@@ -34,6 +34,7 @@ final class RequerimientosFinderRepository
                 'paises.pais',
                 'estados_paises.estado_pais',
                 'usuarios.nombre',
+                'trabajador.nombre as trabajador',
                 'usuarios.apellido',
                 'usuarios.identificacion',
                 'requerimientos.id_trabajador',                
@@ -44,6 +45,7 @@ final class RequerimientosFinderRepository
         )
 
         ->leftjoin(['formato_citas'=>'formato_citas'], 'formato_citas.id = requerimientos.id_formato_cita')
+        ->leftjoin(['trabajador'=>'usuarios'], 'trabajador.id = requerimientos.id_trabajador')
         ->leftjoin(['usuarios'=>'usuarios'], 'usuarios.id = requerimientos.id_usuario')
         ->leftjoin(['paises'=>'paises'], 'paises.id = requerimientos.id_pais')
         ->leftjoin(['estados_paises'=>'estados_paises'], 'estados_paises.id = requerimientos.id_estado_pais')
@@ -58,7 +60,6 @@ final class RequerimientosFinderRepository
         $query->offset([$offset]);
         $query->limit([$limit]);
         //Fin paginador
-        
 
         return $query->execute()->fetchAll('assoc') ?: [];
     }

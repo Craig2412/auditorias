@@ -34,7 +34,7 @@ final class MensajeFinderRepository
             ]
         )
         ->leftjoin(['usuarios'=>'usuarios'], 'usuarios.id = mensajes.id_usuario');
-
+        $query->order(['id' => 'DESC']);
         $query->where(['mensajes.id_condicion' => 1,'mensajes.id_solicitud' => $taskId]);    
 
         //Paginador

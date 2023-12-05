@@ -16,6 +16,8 @@ final class RequerimientosReaderResult
 
     public ?int $id_trabajador = null;
 
+    public ?string $trabajador = null;
+
     public ?string $nombre = null;
 
     public ?string $apellido = null;

@@ -47,7 +47,6 @@ final class SolicitudesFinder
 
             $result->solicitudes[] = $solicitud;
         }
-
         return $result;
     }
 }

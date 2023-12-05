@@ -44,6 +44,7 @@ final class RequerimientosFinder
             $requerimientos->id_estado_pais = $requerimientosRow['id_estado_pais'];
             $requerimientos->estado_pais = $requerimientosRow['estado_pais'];
             $requerimientos->id_trabajador = $requerimientosRow['id_trabajador'];
+            $requerimientos->trabajador = $requerimientosRow['trabajador'];
             $requerimientos->estado = $requerimientosRow['estado'];
             $requerimientos->created = $requerimientosRow['created'];
             $requerimientos->updated = $requerimientosRow['updated'];

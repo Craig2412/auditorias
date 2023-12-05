@@ -4,8 +4,6 @@
 use Slim\App;
 use Slim\Routing\RouteCollectorProxy;
 
-
-
 return function (App $app) {
     // Redirect to Swagger documentation
     $app->get('/', \App\Action\Home\HomeAction::class)->setName('home');
@@ -25,18 +23,18 @@ return function (App $app) {
     );
  
     //Usuarios
-   $app->group(
-    '/usuarios',
-    function (RouteCollectorProxy $app) { 
-        $app->post('/token', \App\Action\Users\UsersFinderAction::class);
+    $app->group(
+        '/usuarios',
+        function (RouteCollectorProxy $app) { 
+            $app->post('/token', \App\Action\Users\UsersFinderAction::class);
 
-        $app->get('/{id_usuario}', \App\Action\Usuario\UsuarioReaderAction::class);//completed
-        $app->get('/{nro_pag}/{cant_registros}', \App\Action\Usuario\UsuarioFinderAction::class);//completed
-        $app->post('', \App\Action\Usuario\UsuarioCreatorAction::class);//completed
-        $app->put('/{usuario_id}', \App\Action\Usuario\UsuarioUpdaterAction::class);//completed
-        $app->delete ('/{usuario_id}', \App\Action\Usuario\UsuarioDeleterAction::class);//completed
-    }
-);
+            $app->get('/{id_usuario}', \App\Action\Usuario\UsuarioReaderAction::class);//completed
+            $app->get('/{nro_pag}/{cant_registros}', \App\Action\Usuario\UsuarioFinderAction::class);//completed
+            $app->post('', \App\Action\Usuario\UsuarioCreatorAction::class);//completed
+            $app->put('/{usuario_id}', \App\Action\Usuario\UsuarioUpdaterAction::class);//completed
+            $app->delete ('/{usuario_id}', \App\Action\Usuario\UsuarioDeleterAction::class);//completed
+        }
+    );
 
     //Permisos
     $app->group(
@@ -139,69 +137,70 @@ return function (App $app) {
 
    
     // Formato_Citas
-        $app->group(
-            '/formato_citas',
-            function (RouteCollectorProxy $app) {
-                $app->get('', \App\Action\Formato_Citas\Formato_CitasFinderAction::class);//completed
-                $app->get('/{formato_citas_id}', \App\Action\Formato_Citas\Formato_CitasReaderAction::class);//completed
-                $app->post('', \App\Action\Formato_Citas\Formato_CitasCreatorAction::class);//completed
-                $app->put('/{formato_citas_id}', \App\Action\Formato_Citas\Formato_CitasUpdaterAction::class);//completed
-                $app->delete('/{formato_citas_id}', \App\Action\Formato_Citas\Formato_CitasDeleterAction::class);//completed
-            }
-        );
+    $app->group(
+        '/formato_citas',
+        function (RouteCollectorProxy $app) {
+            $app->get('', \App\Action\Formato_Citas\Formato_CitasFinderAction::class);//completed
+            $app->get('/{formato_citas_id}', \App\Action\Formato_Citas\Formato_CitasReaderAction::class);//completed
+            $app->post('', \App\Action\Formato_Citas\Formato_CitasCreatorAction::class);//completed
+            $app->put('/{formato_citas_id}', \App\Action\Formato_Citas\Formato_CitasUpdaterAction::class);//completed
+            $app->delete('/{formato_citas_id}', \App\Action\Formato_Citas\Formato_CitasDeleterAction::class);//completed
+        }
+    );
 
 
     // Estados_Paises
-        $app->group(
-            '/estados_paises',
-            function (RouteCollectorProxy $app) {
-                $app->get('', \App\Action\Estados_Paises\Estados_PaisesFinderAction::class);//completed
-                $app->get('/{estado_pais_id}', \App\Action\Estados_Paises\Estados_PaisesReaderAction::class);//completed
-            }
-        );
+    $app->group(
+        '/estados_paises',
+        function (RouteCollectorProxy $app) {
+            $app->get('', \App\Action\Estados_Paises\Estados_PaisesFinderAction::class);//completed
+            $app->get('/{estado_pais_id}', \App\Action\Estados_Paises\Estados_PaisesReaderAction::class);//completed
+        }
+    );
 
     // Paises
-        $app->group(
-            '/paises',
-            function (RouteCollectorProxy $app) {
-                $app->get('', \App\Action\Paises\PaisesFinderAction::class);//
-                $app->get('/{pais_id}', \App\Action\Paises\PaisesReaderAction::class);//
-            }
-        );
+    $app->group(
+        '/paises',
+        function (RouteCollectorProxy $app) {
+            $app->get('', \App\Action\Paises\PaisesFinderAction::class);//
+            $app->get('/{pais_id}', \App\Action\Paises\PaisesReaderAction::class);//
+        }
+    );
 
 
-        // Roles
-        $app->group(
-            '/tokenes',
-            function (RouteCollectorProxy $app) {
-                $app->get('', \App\Action\Roles\RolesFinderAction::class);//
-                $app->get('/{token_id}', \App\Action\Roles\RolesReaderAction::class);//
-                $app->post('', \App\Action\Roles\RolesCreatorAction::class);//
-                $app->put('/{token_id}', \App\Action\Roles\RolesUpdaterAction::class);//
-                $app->delete('/{token_id}', \App\Action\Roles\RolesDeleterAction::class);//
-            }
-        );
+    // Roles
+    $app->group(
+        '/tokenes',
+        function (RouteCollectorProxy $app) {
+            $app->get('', \App\Action\Roles\RolesFinderAction::class);//
+            $app->get('/{token_id}', \App\Action\Roles\RolesReaderAction::class);//
+            $app->post('', \App\Action\Roles\RolesCreatorAction::class);//
+            $app->put('/{token_id}', \App\Action\Roles\RolesUpdaterAction::class);//
+            $app->delete('/{token_id}', \App\Action\Roles\RolesDeleterAction::class);//
+        }
+    );
 
-        // Tokens
-        $app->group(
-            '/tokens',
-            function (RouteCollectorProxy $app) {
-                $app->get('', \App\Action\Tokens\TokensFinderAction::class);//
-                $app->get('/{token_id}', \App\Action\Tokens\TokensReaderAction::class);//
-                $app->post('', \App\Action\Tokens\TokensCreatorAction::class);//
-                $app->put('/{token_id}', \App\Action\Tokens\TokensUpdaterAction::class);//
-                $app->delete('/{token_id}', \App\Action\Tokens\TokensDeleterAction::class);//
-            }
-        );
+    // Tokens
+    $app->group(
+        '/tokens',
+        function (RouteCollectorProxy $app) {
+            $app->get('', \App\Action\Tokens\TokensFinderAction::class);//
+            $app->get('/{token_id}', \App\Action\Tokens\TokensReaderAction::class);//
+            $app->post('', \App\Action\Tokens\TokensCreatorAction::class);//
+            $app->put('/{token_id}', \App\Action\Tokens\TokensUpdaterAction::class);//
+            $app->delete('/{token_id}', \App\Action\Tokens\TokensDeleterAction::class);//
+        }
+    );
 
-        // EstatusCategoria
-        $app->group(
-            '/estatusCategoria',
-            function (RouteCollectorProxy $app) {
-                $app->get('', \App\Action\EstatusCategoria\EstatusCategoriaFinderAction::class);//
-                $app->get('/{estatus_id}', \App\Action\EstatusCategoria\EstatusCategoriaReaderAction::class);//
-            }
-        );
-       
-  
+    // EstatusCategoria
+    $app->group(
+        '/estatusCategoria',
+        function (RouteCollectorProxy $app) {
+            $app->get('', \App\Action\EstatusCategoria\EstatusCategoriaFinderAction::class);//
+            $app->get('/{estatus_id}', \App\Action\EstatusCategoria\EstatusCategoriaReaderAction::class);//
+        }
+    );
+
+    //CRONOLOGIA
+         
 };

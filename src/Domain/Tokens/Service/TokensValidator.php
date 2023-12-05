@@ -46,7 +46,7 @@ final class TokensValidator
                 'token' => $constraint->required(
                     [
                         $constraint->notBlank(),
-                        $constraint->length(5, 100)
+                        $constraint->length(5, 500)
                     ]
                 ),
                 'id_usuario' => $constraint->required(

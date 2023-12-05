@@ -47,7 +47,6 @@ final class SolicitudesRepository
             ->leftjoin(['estados'=>'estados'], 'estados.id = solicitudes.id_estado');
 
         $query->where(['solicitudes.id_condicion' => 1,'id_requerimiento' => $solicitudesId]);
-         
 
         $row = $query->execute()->fetchAll('assoc');
         if (!$row) {

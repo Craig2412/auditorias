@@ -42,8 +42,8 @@ final class SolicitudesReaderAction
         foreach ($result->solicitudes as $solicitudes) {
             $solicitud[] = [
                 'id' => $solicitudes->id,
-                'numero_solicitud' => $solicitudes->numero_solicitud,
-                'numero_registro' => $solicitudes->numero_registro,
+                'num_solicitud' => $solicitudes->num_solicitud,
+                'num_registro' => $solicitudes->num_registro,
                 'descripcion' => $solicitudes->descripcion,
                 'respuesta' => $solicitudes->respuesta,
                 'id_categoria' => $solicitudes->id_categoria,

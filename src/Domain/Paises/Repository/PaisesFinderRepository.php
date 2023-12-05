@@ -24,6 +24,7 @@ final class PaisesFinderRepository
             ]
 
         );
+        $query->order(['pais' => 'ASC']);
         return $query->execute()->fetchAll('assoc') ?: [];
     }
 }

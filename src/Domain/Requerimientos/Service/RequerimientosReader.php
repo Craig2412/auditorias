@@ -58,6 +58,7 @@ final class RequerimientosReader
             $result->id_estado_pais = $requerimientosRow['id_estado_pais'];
             $result->estado_pais = $requerimientosRow['estado_pais'];
             $result->id_trabajador = $requerimientosRow['id_trabajador'];
+            $result->trabajador = $requerimientosRow['trabajador'];
             $result->estado = $requerimientosRow['estado'];
             $result->created = $requerimientosRow['created'];
             $result->updated = $requerimientosRow['updated'];

@@ -9,7 +9,7 @@ final class RelacionToken extends AbstractMigration
     {
 
         $table = $this->table('tokens');
-        $table   ->addForeignKey(['id_usuario'],'usuarios',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_usuariosToken'])
+        $table   ->addForeignKey(['id_usuario'],'usuarios',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_usuarioToken'])
                         ->save();
     }
 }

@@ -15,6 +15,8 @@ final class RequerimientosFinderItem
     public ?int $id_condicion = null;
 
     public ?int $id_trabajador = null;
+    
+    public ?string $trabajador = null;
 
     public ?string $nombre = null;
 

@@ -81,7 +81,7 @@ final class RequerimientosValidator
                 'id_usuario' => $constraint->required(
                     [
                         $constraint->notBlank(),
-                        $constraint->length(1, 10),
+                        $constraint->length(null, 2),
                         $constraint->positive()
                     ]
                 )

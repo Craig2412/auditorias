@@ -67,6 +67,7 @@ final class RequerimientosFinderAction
                 'formato_cita' => $requerimiento->formato_cita,
                 'id_usuario' => $requerimiento->id_usuario,
                 'nombre' => $requerimiento->nombre,
+                'trabajador' => $requerimiento->trabajador,
                 'apellido' => $requerimiento->apellido,
                 'identificacion' => $requerimiento->identificacion,
                 'id_pais' => $requerimiento->id_pais,

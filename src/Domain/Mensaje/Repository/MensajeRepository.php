@@ -82,7 +82,7 @@ final class MensajeRepository
             'mensaje' => strtoupper($mensaje['mensaje']),
             'id_usuario' => $mensaje['id_usuario'],
             'id_solicitud' => $mensaje['id_solicitud'],
-            'id_condicion' => $mensaje['id_condicion'],
+            'id_condicion' => 1,
             'created' => $this->fecha,
             'updated' => null
         ];
