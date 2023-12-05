@@ -21,7 +21,6 @@ final class Citas extends AbstractMigration
                 ->addIndex('id_requerimiento', ['unique' => true])
                 ->addIndex('id_estado')
                 ->addIndex('fecha_cita', ['unique' => true])
-
                 ->create();
     }
    

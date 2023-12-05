@@ -64,8 +64,9 @@ return function (App $app) {
     $app->group(
         '/citas',
         function (RouteCollectorProxy $app) { 
-            $app->get('/{nro_pag}/{cant_registros}[/{params:.*}]', \App\Action\Citas\CitaFinderAction::class);////Paginador//completed
+            $app->get('/byCalendario/{nro_pag}/{cant_registros}/{fecha_inicial}/{fecha_final}', \App\Action\Citas\CitaCalendarioFinderAction::class);//
             $app->get('/{id_cita}', \App\Action\Citas\CitaReaderAction::class);//completed
+            $app->get('/{nro_pag}/{cant_registros}[/{params:.*}]', \App\Action\Citas\CitaFinderAction::class);////Paginador//completed
             $app->post('', \App\Action\Citas\CitaCreatorAction::class);//completed
             $app->put('/{id_cita}', \App\Action\Citas\CitaUpdaterAction::class);//completed
             $app->delete ('/{id_cita}', \App\Action\Citas\CitaDeleterAction::class);//completed
