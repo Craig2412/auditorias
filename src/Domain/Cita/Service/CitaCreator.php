@@ -26,6 +26,10 @@ final class CitaCreator
             ->createLogger();
     }
 
+    
+    
+    
+    
     public function createCita(array $data): int
     {
         // Input validation
@@ -40,5 +44,5 @@ final class CitaCreator
         return $citaId;
     }
 
-    
+
 }
