@@ -58,6 +58,13 @@ class DEstadosSeeders extends AbstractSeed
                 'id_condicion'  => '1',
                 'created' => date('Y-m-d H:i:s'),
                 'updated' => null
+            ],[
+                'id'    => 8,
+                'estado'  => 'CITA REPROGRAMADA',
+                'id_agrupacion'  => 1,
+                'id_condicion'  => '1',
+                'created' => date('Y-m-d H:i:s'),
+                'updated' => null
             ]
             ];
 

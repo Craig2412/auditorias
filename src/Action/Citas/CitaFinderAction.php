@@ -61,6 +61,7 @@ final class CitaFinderAction
             foreach ($result->cita as $cita) {
                 $citas[] = [
                     'id' => $cita->id,
+                    'nombre' => $cita->nombre,
                     'fecha_cita' => $cita->fecha_cita,
                     'id_requerimiento' => $cita->id_requerimiento,
                     'estado' => $cita->estado,

@@ -12,6 +12,8 @@ final class CitaFinderItem
 
     public ?string $estado = null;
 
+    public ?string $nombre = null;
+
     public ?int $id_estado = null;
 
     public ?int $id_formato_cita = null;

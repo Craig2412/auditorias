@@ -33,6 +33,7 @@ final class CitaFinder
             $citas->fecha_cita = $citasRow['fecha_cita'];
             $citas->id_requerimiento = $citasRow['id_requerimiento'];
             $citas->estado = $citasRow['estado'];
+            $citas->nombre = $citasRow['nombre'].' '.$citasRow['apellido'];
             $citas->id_estado = $citasRow['id_estado'];
             $citas->id_formato_cita = $citasRow['id_formato_cita'];
             $citas->formato_cita = $citasRow['formato_cita'];
