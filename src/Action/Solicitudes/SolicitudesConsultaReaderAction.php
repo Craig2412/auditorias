@@ -38,7 +38,8 @@ final class SolicitudesConsultaReaderAction
     private function transform(SolicitudesConsultaReaderResult $solicitudesConsulta): array
     {
         return [
-            'nro_derecho' => $solicitudesConsulta->nro_derecho,
+            'poder' => $solicitudesConsulta->nro_derecho,
+            'registro' => $solicitudesConsulta->registro,
             'solicitud' => $solicitudesConsulta->solicitud,
             'nombre' => $solicitudesConsulta->nombre,
             'categoria' => $solicitudesConsulta->categoria
