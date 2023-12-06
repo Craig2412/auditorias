@@ -40,6 +40,7 @@ final class SolicitudesConsultaReader
             $result = new SolicitudesConsultaReaderResult();
             $result->nombre = trim($solicitudesConsultaRow['nombre']);
             $result->categoria = $solicitudesConsultaRow['estatus'];
+            $result->nombre_categoria = trim($solicitudesConsultaRow['nombre_categoria']);
             $result->nro_derecho = trim($solicitudesConsultaRow['poder']);
             $result->registro = trim($solicitudesConsultaRow['registro']);
             $result->solicitud = $solicitudesConsultaRow['solicitud'];

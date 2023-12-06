@@ -42,7 +42,8 @@ final class SolicitudesConsultaReaderAction
             'registro' => $solicitudesConsulta->registro,
             'solicitud' => $solicitudesConsulta->solicitud,
             'nombre' => $solicitudesConsulta->nombre,
-            'categoria' => $solicitudesConsulta->categoria
+            'categoria' => $solicitudesConsulta->categoria,
+            'nombre_categoria' => $solicitudesConsulta->nombre_categoria
         ];
     }
 }

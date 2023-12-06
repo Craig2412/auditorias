@@ -14,5 +14,6 @@ final class SolicitudesConsultaReaderResult
     public ?string $nombre = null;
     
     public ?string $categoria = null;
-
+    
+    public ?string $nombre_categoria = null;
 }
