@@ -59,6 +59,9 @@ final class CitaCalendarioFinderAction
                 'fecha_cita' => $citaCalendario->fecha_cita,
                                 
                 'id_requerimiento' => $citaCalendario->id_requerimiento,//
+                'id_usuario' => $citaCalendario->id_usuario,
+                'nombre' => $citaCalendario->nombre,
+                'title' => $citaCalendario->nombre.' / '.$citaCalendario->formato_cita,
                 'id_estado' => $citaCalendario->id_estado,
                 'estado' => $citaCalendario->estado,
                 'id_formato_cita' => $citaCalendario->id_formato_cita,

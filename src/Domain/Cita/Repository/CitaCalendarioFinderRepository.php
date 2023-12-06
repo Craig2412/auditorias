@@ -28,6 +28,8 @@ final class CitaCalendarioFinderRepository
                 'citas.id_requerimiento',
                 'citas.id_estado',
                 'estados.estado',
+                'requerimientos.id_usuario',
+                'usuarios.nombre',
 
                 'citas.id_formato_cita',
                 'formato_citas.formato_cita',
@@ -40,6 +42,8 @@ final class CitaCalendarioFinderRepository
 
         ->leftjoin(['estados'=>'estados'], 'estados.id = citas.id_estado')
         ->leftjoin(['formato_citas'=>'formato_citas'], 'formato_citas.id = citas.id_formato_cita')
+        ->leftjoin(['requerimientos'=>'requerimientos'], 'requerimientos.id = citas.id_requerimiento')
+        ->leftjoin(['usuarios'=>'usuarios'], 'usuarios.id = requerimientos.id_usuario')
 
         ->where(function ($exp, $q) use ($fecha_inicial, $fecha_final) {
             return $exp->between('citas.fecha_cita', $fecha_inicial, $fecha_final);

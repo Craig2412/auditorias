@@ -10,6 +10,10 @@ final class CitaReaderResult
 
     public ?int $id_requerimiento = null;
 
+    public ?int $id_usuario = null;
+    
+    public ?string $nombre = null;
+
     public ?string $estado = null;
 
     public ?int $id_estado = null;

@@ -33,6 +33,8 @@ final class CitaCalendarioFinder
             $citaCalendario->id = $citaCalendarioRow['id'];
             $citaCalendario->fecha_cita = $citaCalendarioRow['fecha_cita'];
             $citaCalendario->id_requerimiento = $citaCalendarioRow['id_requerimiento'];
+            $citaCalendario->id_usuario = $citaCalendarioRow['id_usuario'];
+            $citaCalendario->nombre = $citaCalendarioRow['nombre'];
             $citaCalendario->estado = $citaCalendarioRow['estado'];
             $citaCalendario->id_estado = $citaCalendarioRow['id_estado'];
             $citaCalendario->id_formato_cita = $citaCalendarioRow['id_formato_cita'];
