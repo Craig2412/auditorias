@@ -53,7 +53,7 @@ final class TokenRepository
                 'token'
             ]
             );
-        $query->where(['tokens.id_user' => $userId]);
+        $query->where(['tokens.id_usuario' => $userId]);
 
         $row = $query->execute()->fetch('assoc');
 
@@ -76,7 +76,7 @@ final class TokenRepository
     public function existsTokenId(int $tokenId): bool
     {
         $query = $this->queryFactory->newSelect('tokens');
-        $query->select('id')->where(['id_user' => $tokenId]);
+        $query->select('id')->where(['id_usuario' => $tokenId]);
 
         return (bool)$query->execute()->fetch('assoc');
     }
@@ -92,7 +92,7 @@ final class TokenRepository
     {
         return [
             'token' => $usuario['token'],
-            'id_user' => $usuario['id_user']
+            'id_usuario' => $usuario['id_usuario']
             
         ];
     }
