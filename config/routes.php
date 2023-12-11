@@ -202,6 +202,17 @@ return function (App $app) {
         }
     );
 
-    //CRONOLOGIA
+    
+    //AREAS
+    $app->group(
+        '/areas',
+        function (RouteCollectorProxy $app) { 
+            $app->get('', \App\Action\Areas\AreasFinderAction::class);//
+            $app->get('/{area_id}', \App\Action\Areas\AreasReaderAction::class);//
+            $app->post('', \App\Action\Areas\AreasCreatorAction::class);//
+            $app->put('/{area_id}', \App\Action\Areas\AreasUpdaterAction::class);//
+            $app->delete ('/{area_id}', \App\Action\Areas\AreasDeleterAction::class);//
+        }
+    );
          
 };

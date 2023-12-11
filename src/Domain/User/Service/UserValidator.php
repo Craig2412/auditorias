@@ -44,57 +44,45 @@ final class UserValidator
         return $constraint->collection(
             [
     
-                'name' => $constraint->required(
+                'nombre' => $constraint->required(
                     [
                         $constraint->notBlank(),
                         $constraint->length(null, 100),
                     ]
                 ),
-                'surname' => $constraint->optional(
+                'apellido' => $constraint->optional(
                     [
                         $constraint->notBlank(),
                         $constraint->length(null, 100),
                         $constraint->positive(),
                     ]
                 ),
-                'email' => $constraint->required(
+                'correo' => $constraint->required(
                     [
                         $constraint->notBlank(),
                         $constraint->email(),
                         $constraint->length(null, 100),
                     ]
                 ),
-                'phone' => $constraint->optional(
+                'telefono' => $constraint->optional(
                     [
                         $constraint->notBlank(),
                         $constraint->length(null, 11),
                     ]
                 ),
-                'id_role' => $constraint->required(
+                'id_rol' => $constraint->required(
                     [
                         $constraint->notBlank(),
                         $constraint->positive()
                     ]
-                ),
-                'id_condition' => $constraint->required(
-                    [
-                        $constraint->notBlank(),
-                        $constraint->positive()
-                    ]
-                ),
-                'id_signature' => $constraint->required(
-                    [
-                        $constraint->notBlank(),
-                        $constraint->positive()
-                    ]
-                ),
-                'identification' => $constraint->required(
+                    ),
+                'identificacion' => $constraint->required(
                     [
                         $constraint->notBlank(),
                         $constraint->length(null, 10),
                     ]
                     ),
-                'pass' => $constraint->required(
+                'clave' => $constraint->required(
                     [
                         $constraint->notBlank()
                         

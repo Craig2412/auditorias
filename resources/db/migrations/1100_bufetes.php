@@ -13,15 +13,11 @@ final class Bufetes extends AbstractMigration
                  ->addColumn('rif', 'string' , ['limit' => 15])
                  ->addColumn('correo', 'string' , ['limit' => 100])
                  ->addColumn('telefono', 'string' , ['limit' => 11])        
-                 ->addColumn('id_usuario', 'integer' , ['null' => false , 'signed' => false])
                  ->addColumn('id_condicion', 'integer', ['signed' => false])
 
                  ->addColumn('created', 'datetime')
                  ->addColumn('updated', 'datetime', ['null' => true])
-
-                 ->addIndex('id_usuario')
                  ->addIndex('id_condicion')
-                 ->addIndex('id_usuario', ['unique' => true])
 
                  
                  ->create();

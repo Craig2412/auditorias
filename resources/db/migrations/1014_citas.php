@@ -23,5 +23,4 @@ final class Citas extends AbstractMigration
                 ->addIndex('fecha_cita', ['unique' => true])
                 ->create();
     }
-   
 }
