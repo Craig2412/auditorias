@@ -47,10 +47,7 @@ final class BufeteReader
         $result->telefono = $bufeteRow['telefono'];
         $result->rif = $bufeteRow['rif'];
         $result->nombre_bufete = $bufeteRow['nombre_bufete'];
-        $result->id_usuario = $bufeteRow['id_usuario'];
-        $result->nombre = $bufeteRow['nombre'];
-        $result->apellido = $bufeteRow['apellido'];
-        $result->identificacion = $bufeteRow['identificacion'];
+        
         $result->id_condicion = $bufeteRow['id_condicion'];
         $result->created = $bufeteRow['created'];
         $result->updated = $bufeteRow['updated'];

@@ -62,13 +62,7 @@ final class BufeteValidator
                         $constraint->length(11, 11),
                     ]
                 ),
-                'id_usuario' => $constraint->required(
-                    [
-                        $constraint->notBlank(),
-                        $constraint->length(1, 10),
-                        $constraint->positive()
-                    ]
-                ),
+                
                 'rif' => $constraint->required(
                     [
                         $constraint->notBlank(),

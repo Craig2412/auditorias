@@ -43,10 +43,6 @@ final class BufeteFinderAction
                 'rif' => $bufete->rif,
                 'correo_bufete' => $bufete->correo,
                 'telefono_bufete' => $bufete->telefono,
-                'id_usuario' => $bufete->id_usuario,
-                'nombre' => $bufete->nombre,
-                'apellido' => $bufete->apellido,
-                'identificacion' => $bufete->identificacion,
                 'id_condicion' => $bufete->id_condicion,
                 'created' => $bufete->created,
                 'updated' => $bufete->updated
