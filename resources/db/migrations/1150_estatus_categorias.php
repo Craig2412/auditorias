@@ -8,7 +8,7 @@ final class EstatusCategorias extends AbstractMigration
     public function change(): void
     {
         $estatus_categorias = $this->table('estatus_categorias');
-        $estatus_categorias->addColumn('estatus_categoria','string', ['limit' => 500])
+        $estatus_categorias->addColumn('estatus_categoria', 'integer')
                             ->addColumn('id_categoria', 'integer', ['signed' => false])
                             ->addColumn('created', 'datetime')
                             ->addColumn('updated', 'datetime', ['null' => true])

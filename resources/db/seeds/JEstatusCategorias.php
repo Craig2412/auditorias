@@ -37,27 +37,6 @@ class JEstatusCategorias extends AbstractSeed
                 'created' => date('Y-m-d H:i:s'),
                 'updated' => null
             ],
-            [
-                'id'    => 5,
-                'estatus_categoria'    => 'TODOS',
-                'id_categoria'    => '3',
-                'created' => date('Y-m-d H:i:s'),
-                'updated' => null
-            ],
-            [
-                'id'    => 6,
-                'estatus_categoria'    => 'TODOS',
-                'id_categoria'    => '4',
-                'created' => date('Y-m-d H:i:s'),
-                'updated' => null
-            ],
-            [
-                'id'    => 7,
-                'estatus_categoria'    => 'TODOS',
-                'id_categoria'    => '5',
-                'created' => date('Y-m-d H:i:s'),
-                'updated' => null
-            ],
         ];
 
         $posts = $this->table('estatus_categorias');

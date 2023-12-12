@@ -32,6 +32,6 @@ final class RequerimientosUpdaterAction
         $new_date = $this->requerimientosUpdater->updateRequerimientos($requerimientosId, $data);
 
         // Build the HTTP response
-        return $this->renderer->json($response,['datos nuevos' => $new_date]);
+        return $this->renderer->json($response,['datosNuevos' => $new_date]);
     }
 }
