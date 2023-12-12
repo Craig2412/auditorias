@@ -37,7 +37,7 @@ final class UsuariosAreasRepository
         ->leftjoin(['areas'=>'areas'], 'areas.id = usuarios_area.id_area')
         ->leftjoin(['usuarios'=>'usuarios'], 'usuarios.id = usuarios_area.id_usuario');
 
-        $query->where(['usuarios_area.id' => $usuariosareasId]);
+        $query->where(['usuarios_area.id_usuario' => $usuariosareasId]);
 
         $row = $query->execute()->fetch('assoc');
 

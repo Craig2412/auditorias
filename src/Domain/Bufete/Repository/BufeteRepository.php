@@ -32,8 +32,7 @@ final class BufeteRepository
                 'bufetes.nombre_bufete',
                 'bufetes.rif',
                 'bufetes.correo',
-                'bufetes.telefono',
-                            
+                'bufetes.telefono',         
                 'bufetes.id_condicion' ,               
                 'bufetes.created' ,               
                 'bufetes.updated'     

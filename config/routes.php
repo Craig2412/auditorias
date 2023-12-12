@@ -86,6 +86,18 @@ return function (App $app) {
         }
     );
 
+    //USUARIOS BUFETES
+    $app->group(
+        '/usuarios_bufetes',
+        function (RouteCollectorProxy $app) { 
+            $app->get('', \App\Action\UsuariosBufetes\UsuariosBufetesFinderAction::class);//completed
+            $app->get('/{usuarios_bufete_id}', \App\Action\UsuariosBufetes\UsuariosBufetesReaderAction::class);//completed//Enviar el ID de usuario al que quieres buscar
+            $app->post('', \App\Action\UsuariosBufetes\UsuariosBufetesCreatorAction::class);//completed
+            $app->put('/{usuarios_bufete_id}', \App\Action\UsuariosBufetes\UsuariosBufetesUpdaterAction::class);//completed
+            $app->delete ('/{usuarios_bufete_id}', \App\Action\UsuariosBufetes\UsuariosBufetesDeleterAction::class);//completed
+        }
+    ); 
+
     //SOLICITUDES 
     $app->group(
         '/solicitudes',
@@ -215,16 +227,16 @@ return function (App $app) {
             $app->delete ('/{area_id}', \App\Action\Areas\AreasDeleterAction::class);//completed
         }
     );
+
     //USUARIOS AREAS
     $app->group(
         '/usuarios_areas',
         function (RouteCollectorProxy $app) { 
             $app->get('', \App\Action\UsuariosAreas\UsuariosAreasFinderAction::class);//completed
-            $app->get('/{usuarios_area_id}', \App\Action\UsuariosAreas\UsuariosAreasReaderAction::class);//completed
+            $app->get('/{usuarios_area_id}', \App\Action\UsuariosAreas\UsuariosAreasReaderAction::class);//completed//Enviar el ID de usuario al que quieres buscar
             $app->post('', \App\Action\UsuariosAreas\UsuariosAreasCreatorAction::class);//completed
             $app->put('/{usuarios_area_id}', \App\Action\UsuariosAreas\UsuariosAreasUpdaterAction::class);//completed
             $app->delete ('/{usuarios_area_id}', \App\Action\UsuariosAreas\UsuariosAreasDeleterAction::class);//completed
         }
-    );
-         
+    );   
 };

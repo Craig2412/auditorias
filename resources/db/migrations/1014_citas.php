@@ -15,7 +15,6 @@ final class Citas extends AbstractMigration
                 ->addColumn('id_condicion', 'integer', ['signed' => false])
                 ->addColumn('created', 'datetime')
                 ->addColumn('updated', 'datetime', ['null' => true])
-
                 ->addIndex('id_formato_cita')
                 ->addIndex('id_condicion')
                 ->addIndex('id_requerimiento', ['unique' => true])
