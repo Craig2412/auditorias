@@ -36,10 +36,7 @@ final class BufeteFinder
             $bufete->correo = $bufeteRow['correo'];
             $bufete->telefono = $bufeteRow['telefono'];
             $bufete->nombre_bufete = $bufeteRow['nombre_bufete'];
-            $bufete->id_usuario = $bufeteRow['id_usuario'];
-            $bufete->nombre = $bufeteRow['nombre'];
-            $bufete->apellido = $bufeteRow['apellido'];
-            $bufete->identificacion = $bufeteRow['identificacion'];
+            
             $bufete->id_condicion = $bufeteRow['id_condicion'];
             $bufete->created = $bufeteRow['created'];
             $bufete->updated = $bufeteRow['updated'];

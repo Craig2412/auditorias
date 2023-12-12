@@ -33,16 +33,12 @@ final class BufeteRepository
                 'bufetes.rif',
                 'bufetes.correo',
                 'bufetes.telefono',
-                'bufetes.id_usuario' ,               
-                'usuarios.nombre' ,               
-                'usuarios.apellido' ,               
-                'usuarios.identificacion' ,               
+                            
                 'bufetes.id_condicion' ,               
                 'bufetes.created' ,               
                 'bufetes.updated'     
             ]
-            )->leftjoin(['usuarios'=>'usuarios'], 'usuarios.id = bufetes.id_usuario')
-        ;
+            );
 
         $query->where(['bufetes.id_condicion' => 1,'bufetes.id' => $bufeteId]);
 
@@ -87,7 +83,6 @@ final class BufeteRepository
             'correo' => $bufete['correo'],
             'telefono' => $bufete['telefono'],
             'id_condicion' => 1,
-            'id_usuario' => $bufete['id_usuario'],
             'created' => $this->fecha,
             'updated' => null
         ];

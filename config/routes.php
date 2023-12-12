@@ -30,6 +30,7 @@ return function (App $app) {
 
             $app->get('/{id_usuario}', \App\Action\Usuario\UsuarioReaderAction::class);//completed
             $app->get('/{nro_pag}/{cant_registros}', \App\Action\Usuario\UsuarioFinderAction::class);//completed
+           // $app->get('ByRol/{nro_pag}/{cant_registros}/{id_rol}', \App\Action\Usuario\UsuarioByRolFinderAction::class);//completed
             $app->post('', \App\Action\Usuario\UsuarioCreatorAction::class);//completed
             $app->put('/{usuario_id}', \App\Action\Usuario\UsuarioUpdaterAction::class);//completed
             $app->delete ('/{usuario_id}', \App\Action\Usuario\UsuarioDeleterAction::class);//completed
@@ -202,6 +203,28 @@ return function (App $app) {
         }
     );
 
-    //CRONOLOGIA
+    
+    //AREAS
+    $app->group(
+        '/areas',
+        function (RouteCollectorProxy $app) { 
+            $app->get('', \App\Action\Areas\AreasFinderAction::class);//completed
+            $app->get('/{area_id}', \App\Action\Areas\AreasReaderAction::class);//completed
+            $app->post('', \App\Action\Areas\AreasCreatorAction::class);//completed
+            $app->put('/{area_id}', \App\Action\Areas\AreasUpdaterAction::class);//completed
+            $app->delete ('/{area_id}', \App\Action\Areas\AreasDeleterAction::class);//completed
+        }
+    );
+    //USUARIOS AREAS
+    $app->group(
+        '/usuarios_areas',
+        function (RouteCollectorProxy $app) { 
+            $app->get('', \App\Action\UsuariosAreas\UsuariosAreasFinderAction::class);//completed
+            $app->get('/{usuarios_area_id}', \App\Action\UsuariosAreas\UsuariosAreasReaderAction::class);//completed
+            $app->post('', \App\Action\UsuariosAreas\UsuariosAreasCreatorAction::class);//completed
+            $app->put('/{usuarios_area_id}', \App\Action\UsuariosAreas\UsuariosAreasUpdaterAction::class);//completed
+            $app->delete ('/{usuarios_area_id}', \App\Action\UsuariosAreas\UsuariosAreasDeleterAction::class);//completed
+        }
+    );
          
 };

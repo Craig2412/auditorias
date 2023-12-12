@@ -43,10 +43,6 @@ final class BufeteReaderAction
             'rif' => $bufetes->rif,
             'correo_bufete' => $bufetes->correo,
             'telefono_bufete' => $bufetes->telefono,
-            'id_usuario' => $bufetes->id_usuario,
-            'nombre' => $bufetes->nombre,
-            'apellido' => $bufetes->apellido,
-            'identificacion' => $bufetes->identificacion,
             'id_condicion' => $bufetes->id_condicion,
             'created' => $bufetes->created,
             'updated' => $bufetes->updated       

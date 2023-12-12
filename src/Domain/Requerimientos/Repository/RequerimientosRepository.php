@@ -104,7 +104,7 @@ final class RequerimientosRepository
             'id_estado' => $requerimientos['id_estado'],
             'id_estado_pais' => $requerimientos['id_estado_pais'],
             'id_pais' => $requerimientos['id_pais'],
-            'id_trabajador' => $requerimientos['id_trabajador'],
+            'id_trabajador' => 3,
             'created' =>$this->fecha,
             'updated' => null
         ];

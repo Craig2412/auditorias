@@ -24,5 +24,4 @@ final class Citas extends AbstractMigration
 
                         ->create();
     }
-   
 }

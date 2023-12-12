@@ -10,8 +10,7 @@ final class RelacionBufetes extends AbstractMigration
     {
 
         $bufetes = $this->table('bufetes');
-        $bufetes ->addForeignKey(['id_usuario'],'usuarios',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_usuarioBufetes'])
-                 ->addForeignKey(['id_condicion'],'condiciones',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_condicionBuefetes'])
+        $bufetes->addForeignKey(['id_condicion'],'condiciones',['id'],['delete'=> 'NO_ACTION', 'update'=> 'NO_ACTION', 'constraint' => 'id_condicionBuefetes'])
                 ->save();
     }
 }

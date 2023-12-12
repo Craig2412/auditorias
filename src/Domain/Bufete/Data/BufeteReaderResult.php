@@ -16,14 +16,6 @@ final class BufeteReaderResult
     public ?string $telefono = null;
     
     public ?string $correo = null;
-
-    public ?string $nombre = null;
-
-    public ?string $apellido = null;
-
-    public ?string $identificacion = null;
-
-    public ?int $id_usuario = null;
     
     public ?int $id_condicion = null;
 
