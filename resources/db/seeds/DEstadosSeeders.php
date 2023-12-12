@@ -33,14 +33,14 @@ class DEstadosSeeders extends AbstractSeed
             ],[
                 'id'    => 4,
                 'estado'  => 'CITA PAUTADA',
-                'id_agrupacion'  => 2,
+                'id_agrupacion'  => 1,
                 'id_condicion'  => '1',
                 'created' => date('Y-m-d H:i:s'),
                 'updated' => null
             ],[
                 'id'    => 5,
                 'estado'  => 'CITA CANCELADA',
-                'id_agrupacion'  => 2,
+                'id_agrupacion'  => 1,
                 'id_condicion'  => '1',
                 'created' => date('Y-m-d H:i:s'),
                 'updated' => null
@@ -55,6 +55,13 @@ class DEstadosSeeders extends AbstractSeed
                 'id'    => 7,
                 'estado'  => 'CERRADA',
                 'id_agrupacion'  => 3,
+                'id_condicion'  => '1',
+                'created' => date('Y-m-d H:i:s'),
+                'updated' => null
+            ],[
+                'id'    => 8,
+                'estado'  => 'CITA REPROGRAMADA',
+                'id_agrupacion'  => 1,
                 'id_condicion'  => '1',
                 'created' => date('Y-m-d H:i:s'),
                 'updated' => null
