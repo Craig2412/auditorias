@@ -14,6 +14,7 @@ final class argValidator
         foreach ($params as $filas => $value) {
 
             switch ($filas) {
+
                 case 'format_appointment':
                     $filas = 'format_appointment.format_appointment';
                     $value = strtoupper($value);
@@ -50,7 +51,6 @@ final class argValidator
                     $where = [...$where,$filas => "$value"];;
                     break;
 
-                
                 default:
                     break;
             }

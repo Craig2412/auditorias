@@ -23,7 +23,6 @@ final class CitaFinderAction
 
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        
     //Paginador
         if (isset($args['nro_pag']) && ($args['nro_pag'] > 0)) {
             $nro_pag = (int)$args['nro_pag'];

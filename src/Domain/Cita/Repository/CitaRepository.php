@@ -52,6 +52,37 @@ final class CitaRepository
         return $row;
     }
 
+
+    public function getCitabyRequerimientoById(int $citaId): array
+    {
+        $query = $this->queryFactory->newSelect('citas');
+        $query->select(
+            [
+                'citas.id',
+                'citas.fecha_cita',
+                'citas.id_requerimiento',
+                'citas.id_estado',
+                'estados.estado',
+                'citas.id_formato_cita',
+                'formato_citas.formato_cita',
+                'citas.id_condicion',
+                'citas.created',
+                'citas.updated'
+            ]
+        )
+        ->leftjoin(['estados'=>'estados'], 'estados.id = citas.id_estado')
+        ->leftjoin(['formato_citas'=>'formato_citas'], 'formato_citas.id = citas.id_formato_cita'); 
+        
+        $query->where(['citas.id_condicion' => 1,'citas.id_requerimiento' => $citaId]);
+
+        $row = $query->execute()->fetch('assoc');
+
+        if (!$row) {
+            throw new DomainException(sprintf('Citas not found: %s', $citaId));
+        }
+        return $row;
+    }
+
     public function updateCita(int $citaId, array $cita): array
     {
         $row = $this->toRowUpdate($cita);
