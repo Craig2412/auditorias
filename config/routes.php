@@ -65,7 +65,8 @@ return function (App $app) {
     $app->group(
         '/citas',
         function (RouteCollectorProxy $app) { 
-            $app->get('/{id_cita}', \App\Action\Citas\CitaReaderAction::class);//
+            $app->get('/{id_cita}', \App\Action\Citas\CitaReaderAction::class);//completed
+            $app->get('/byMeses/{year}', \App\Action\Citas\CitabyMonthFinderAction::class);//completed DASHBOARD
             $app->get('/ByRequerimiento/{id_requerimiento}', \App\Action\Citas\CitaByRequerimientoReaderAction::class);//completed
             $app->get('/byCalendario/{nro_pag}/{cant_registros}/{fecha_inicial}/{fecha_final}', \App\Action\Citas\CitaCalendarioFinderAction::class);//
             $app->get('/{nro_pag}/{cant_registros}[/{params:.*}]', \App\Action\Citas\CitaFinderAction::class);////Paginador//completed
@@ -104,6 +105,7 @@ return function (App $app) {
         '/solicitudes',
         function (RouteCollectorProxy $app) { 
             $app->get('', \App\Action\Solicitudes\SolicitudesFinderAction::class);//completed    LISTA DE SOLICITUDES SIN DISCRIMINACION
+            $app->get('/byCategorias', \App\Action\Solicitudes\SolicitudesbyCategoriasFinderAction::class);//completed DASHBOARD
             $app->get('/consulta/{nro_solicitud}', \App\Action\Solicitudes\SolicitudesConsultaReaderAction::class);//completed          //Se conecta con el sipi y devuelve los datos de un numero de solicitud
             $app->get('/{id_requerimiento}', \App\Action\Solicitudes\SolicitudesReaderAction::class);//completed           //ESTA TRAE LAS SOLICITUDES DE UN REQUERIMIENTO
             $app->get('/unicas/{id_solicitud}', \App\Action\Solicitudes\SolicitudesUnicasReaderAction::class);//completed        //ESTA TRAE LA SOLICITUD UNICA DE UN REQUERIMIENTO
@@ -117,6 +119,7 @@ return function (App $app) {
     $app->group(
         '/requerimientos',
         function (RouteCollectorProxy $app) { 
+            $app->get('/byEstados', \App\Action\Requerimientos\RequerimientosbyEstadosFinderAction::class);//completed DASHBOARD
             $app->get('/unique/{id_requerimiento}', \App\Action\Requerimientos\RequerimientosReaderAction::class);//completed
             $app->get('/{nro_pag}/{cant_registros}[/{params:.*}]', \App\Action\Requerimientos\RequerimientosFinderAction::class);//completed
             $app->post('', \App\Action\Requerimientos\RequerimientosCreatorAction::class);//completed
