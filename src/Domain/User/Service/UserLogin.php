@@ -36,21 +36,23 @@ final class UserLogin
     public function loginUser(array $data): UserLoginResult
     {
         // Get user and get new user ID
-        $data = json_decode($data['body']);
-        $data = [ 'email' => $data->user,
-                  'pass' => $data->pass];
-       // var_dump($data->user);
+             
+        $data = [ 'email' => $data["user"],
+                  'pass' => $data["pass"]];
         $user = $this->repository->getUserLogin($data['email'], $data['pass']);
+        $scope = $this->repository->getPermissionsByUser($user['id_rol'] + 0);
         $token = $this->tokenFinder->finderToken($user['id']);
         if (count($token)===0) {
-            $token = $this->tokenCreator->createToken(["user_id"=>$user['id'], "scope"=>$user['id_role']]);
+            $token = $this->tokenCreator->createToken(["user_id"=>$user['id'], "scope"=>$scope]);
         }
         // Logging
         $this->logger->info(sprintf('User reader successfully: %s', $user));
-
+        // Return response
         $result = new UserLoginResult();
         $result->id = $user['id'];
         $result->token = $token['token'];
+        $result->id_rol = $user['id_rol'];
+        $result->name = $user['nombre'].' '.$user['apellido'];
 
         return $result;
     }

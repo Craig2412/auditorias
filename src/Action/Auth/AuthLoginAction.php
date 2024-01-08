@@ -28,7 +28,7 @@ final class AuthLoginAction
         ): ResponseInterface {
         // Extract the form data from the request body
         $data = (array)$request->getParsedBody();
-        //var_dump();
+        $token = $request->getAttribute("Authorization");
 
         // Invoke the Domain with inputs and retain the result
         $user = $this->userLogin->loginUser($data);
@@ -39,7 +39,9 @@ final class AuthLoginAction
     {
         return [
             'id' => $users->id,
-            'token' => $users->token
+            'token' => $users->token,
+            'name' => $users->name,
+            'id_rol' => $users->id_rol
         ];
     }
     

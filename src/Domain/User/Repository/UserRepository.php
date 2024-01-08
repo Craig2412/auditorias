@@ -53,7 +53,10 @@ final class UserRepository
             [
                 'usuarios.id',
                 'usuarios.clave',
-                'usuarios.id_rol'
+                'usuarios.id_rol',
+                'usuarios.nombre',
+                'usuarios.apellido'
+
             ]
             );
 
@@ -64,6 +67,25 @@ final class UserRepository
 
         if (!$verify) {
             throw new DomainException(sprintf('User not found: %s', $email));
+        }
+        return $row;
+    }
+
+    public function getPermissionsByUser(int $id_rol): array
+    {
+        $pas = new Bcrypt($pass);
+        $query = $this->queryFactory->newSelect('permisos');
+        $query->select(
+            [
+                'permisos.nombre'
+            ]
+            )->leftJoin(['p' => 'permisos_por_rol'], 'p.id_permisos = permisos.id');
+        $query->where(['p.id_rol' => $id_rol]);
+        
+        $row = $query->execute()->fetchAll('assoc');
+
+        if (!$row) {
+            throw new DomainException(sprintf('Role not found: %s', $email));
         }
         return $row;
     }
