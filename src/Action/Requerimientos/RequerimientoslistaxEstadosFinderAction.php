@@ -34,28 +34,28 @@ final class RequerimientoslistaxEstadosFinderAction
 
     public function transform(RequerimientoslistaxEstadosFinderResult $result): array
     {
-        $requerimientos = [];
+        $requerimientoslistaxEstados = [];
 
-        foreach ($result->requerimientos as $requerimiento) {
-            $requerimientos[] = [
-                'id' => $requerimiento->id,
-                'id_formato_cita' => $requerimiento->id_formato_cita,
-                'formato_cita' => $requerimiento->formato_cita,
-                'id_usuario' => $requerimiento->id_usuario,
-                'nombre' => $requerimiento->nombre,
-                'trabajador' => $requerimiento->trabajador,
-                'apellido' => $requerimiento->apellido,
-                'identificacion' => $requerimiento->identificacion,
-                'id_pais' => $requerimiento->id_pais,
-                'pais' => $requerimiento->pais,
-                'id_estado_pais' => $requerimiento->id_estado_pais,
-                'estado_pais' => $requerimiento->estado_pais,
-                'id_condicion' => $requerimiento->id_condicion,
-                'id_estado' => $requerimiento->id_estado,
-                'estado' => $requerimiento->estado,
-                'id_trabajador' => $requerimiento->id_trabajador,
-                'created' => $requerimiento->created,
-                'updated' => $requerimiento->updated
+        foreach ($result->requerimientoslistaxEstados as $requerimientolistaxEstados) {
+            $requerimientoslistaxEstados[] = [
+                'id' => $requerimientolistaxEstados->id,
+                'id_formato_cita' => $requerimientolistaxEstados->id_formato_cita,
+                'formato_cita' => $requerimientolistaxEstados->formato_cita,
+                'id_usuario' => $requerimientolistaxEstados->id_usuario,
+                'nombre' => $requerimientolistaxEstados->nombre,
+                'trabajador' => $requerimientolistaxEstados->trabajador,
+                'apellido' => $requerimientolistaxEstados->apellido,
+                'identificacion' => $requerimientolistaxEstados->identificacion,
+                'id_pais' => $requerimientolistaxEstados->id_pais,
+                'pais' => $requerimientolistaxEstados->pais,
+                'id_estado_pais' => $requerimientolistaxEstados->id_estado_pais,
+                'estado_pais' => $requerimientolistaxEstados->estado_pais,
+                'id_condicion' => $requerimientolistaxEstados->id_condicion,
+                'id_estado' => $requerimientolistaxEstados->id_estado,
+                'estado' => $requerimientolistaxEstados->estado,
+                'id_trabajador' => $requerimientolistaxEstados->id_trabajador,
+                'created' => $requerimientolistaxEstados->created,
+                'updated' => $requerimientolistaxEstados->updated
             ];
         }
 

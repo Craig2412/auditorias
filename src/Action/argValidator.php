@@ -45,6 +45,12 @@ final class argValidator
                     $where = [...$where,$filas => "$value"];
                     break;
 
+                case 'id_usuario_cita':
+                    $filas = 'citas.id_usuario';
+                    $value = strtoupper($value);
+                    $where = [...$where,$filas => "$value"];
+                    break;
+
                 case 'fecha_inicial':
                     $filas = "'".$table_name.'.created';
                     $value = strtoupper($value);
