@@ -24,9 +24,9 @@ final class RequerimientoslistaxEstadosFinderAction
 
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        $requerimientoId = (int)$args['array_estados_id'];
-
-        $requerimientoslistaxEstados = $this->requerimientoslistaxEstadosFinder->findRequerimientoslistaxEstados();
+        $EstadosId = (array)$args['array_estados_id'];
+        $array = str_split($EstadosId[0]);
+        $requerimientoslistaxEstados = $this->requerimientoslistaxEstadosFinder->findRequerimientoslistaxEstados($array);
   
 
         // Transform result and render to json

@@ -15,10 +15,10 @@ final class RequerimientoslistaxEstadosFinder
         $this->repository = $repository;
     }
 
-    public function findRequerimientoslistaxEstados(): RequerimientoslistaxEstadosFinderResult
+    public function findRequerimientoslistaxEstados(array $array): RequerimientoslistaxEstadosFinderResult
     {
         // Input validation
-        $requerimientoslistaxEstados = $this->repository->findRequerimientoslistaxEstados();
+        $requerimientoslistaxEstados = $this->repository->findRequerimientoslistaxEstados($array);
 
         return $this->createResult($requerimientoslistaxEstados);
     }

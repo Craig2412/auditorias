@@ -120,7 +120,7 @@ return function (App $app) {
         '/requerimientos',
         function (RouteCollectorProxy $app) { 
             $app->get('/byEstados', \App\Action\Requerimientos\RequerimientosbyEstadosFinderAction::class);//completed DASHBOARD
-            $app->get('/listaxEstados/{array_estados_id}', \App\Action\Requerimientos\RequerimientoslistaxEstadosFinderAction::class);// 
+            $app->get('/listaxEstados/{array_estados_id}', \App\Action\Requerimientos\RequerimientoslistaxEstadosFinderAction::class);// Completed EL ARRAY DE ESTADOS ES UN NUMERO ENTERO QUE DEBES ENVIAR
             $app->get('/unique/{id_requerimiento}', \App\Action\Requerimientos\RequerimientosReaderAction::class);//completed
             $app->get('/{nro_pag}/{cant_registros}[/{params:.*}]', \App\Action\Requerimientos\RequerimientosFinderAction::class);//completed
             $app->post('', \App\Action\Requerimientos\RequerimientosCreatorAction::class);//completed

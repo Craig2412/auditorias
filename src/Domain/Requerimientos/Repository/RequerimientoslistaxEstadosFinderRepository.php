@@ -14,8 +14,9 @@ final class RequerimientoslistaxEstadosFinderRepository
         $this->queryFactory = $queryFactory;
     }
 
-    public function findRequerimientoslistaxEstados(): array
+    public function findRequerimientoslistaxEstados(array $array): array
     {
+        
         
         $query = $this->queryFactory->newSelect('requerimientos');
                
@@ -49,9 +50,9 @@ final class RequerimientoslistaxEstadosFinderRepository
         ->leftjoin(['estados_paises'=>'estados_paises'], 'estados_paises.id = requerimientos.id_estado_pais')
         ->leftjoin(['estados'=>'estados'], 'estados.id = requerimientos.id_estado');
 
-        $query->where(['requerimientos.id_estado OR' => 1, 'requerimientos.id_estado' => 2]);
-      var_dump($query);
-        //$query->where(['requerimientos.id_condicion' => 1]);
+       
+        $query->where(['requerimientos.id_estado IN' => $array]);
+
 
         return $query->execute()->fetchAll('assoc') ?: [];
     }
