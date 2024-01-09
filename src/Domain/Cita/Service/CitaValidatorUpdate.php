@@ -46,7 +46,7 @@ final class CitaValidatorUpdate
                 'fecha_cita' => $constraint->required(
                     [
                         $constraint->notBlank(),
-                        $constraint->length(19, 19),
+                        $constraint->length(10, 10),
                     ]
                 ),
                 'id_formato_cita' => $constraint->optional(

@@ -3,6 +3,7 @@
 namespace App\Domain\Requerimientos\Repository;
 
 use App\Factory\QueryFactory;
+use Cake\Database\Expression\QueryExpression;
 
 final class RequerimientoslistaxEstadosFinderRepository
 {
@@ -48,10 +49,8 @@ final class RequerimientoslistaxEstadosFinderRepository
         ->leftjoin(['estados_paises'=>'estados_paises'], 'estados_paises.id = requerimientos.id_estado_pais')
         ->leftjoin(['estados'=>'estados'], 'estados.id = requerimientos.id_estado');
 
-        //$query->where(['requerimientos.id_condicion' => 1]);
-        $query->where(['OR' => ['requerimientos.id_estado' => 1,'requerimientos.id_estado' => 2 ]]);
-        //$query->where(['requerimientos.id_condicion' => 1]);
-
+        $query->where(['requerimientos.id_estado' => 1, 'OR requerimientos.id_estado' => 2]);
+      
         return $query->execute()->fetchAll('assoc') ?: [];
     }
 }
