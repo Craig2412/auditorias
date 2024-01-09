@@ -22,8 +22,9 @@ final class RequerimientoslistaxEstadosFinderAction
         $this->renderer = $jsonRenderer;
     }
 
-    public function __invoke(ServerRequestInterface $request, ResponseInterface $response): ResponseInterface
+    public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
+        $requerimientoId = (int)$args['array_estados_id'];
 
         $requerimientoslistaxEstados = $this->requerimientoslistaxEstadosFinder->findRequerimientoslistaxEstados();
   
