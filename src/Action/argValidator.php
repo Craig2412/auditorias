@@ -21,8 +21,8 @@ final class argValidator
                     $where = [...$where,$filas => "$value"];   
                     break;
                 
-                case 'name':
-                    $filas = 'users.name';
+                case 'nombre':
+                    $filas = 'usuarios.nombre';
                     $value = strtoupper($value);
                     $where = [...$where,$filas => "$value"];   
                     break;
@@ -33,14 +33,14 @@ final class argValidator
                     $where = [...$where,$filas => "$value"];
                     break;
                 
-                case 'status':
-                    $filas = 'state.status';
+                case 'estado':
+                    $filas = 'estados.estado';
                     $value = strtoupper($value);
                     $where = [...$where,$filas => "$value"];
                     break;
 
-                case 'format_appointments':
-                    $filas = 'format_appointment.format_appointment';
+                case 'id_usuario':
+                    $filas = 'requerimientos.id_usuario';
                     $value = strtoupper($value);
                     $where = [...$where,$filas => "$value"];
                     break;

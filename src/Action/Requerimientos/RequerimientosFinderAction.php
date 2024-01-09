@@ -88,3 +88,9 @@ final class RequerimientosFinderAction
         ];
     }
 }
+
+/*
+EJEMPLO DEL STRING QUE SE DEBE ENVIAR POR LOS PARAMETROS CON FORMATO JSON:
+    {"area": "some_value", "status": "some_name", "type_tasks": "some_surname"}
+ 
+*/

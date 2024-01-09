@@ -107,7 +107,7 @@ return function (App $app) {
             $app->get('', \App\Action\Solicitudes\SolicitudesFinderAction::class);//completed    LISTA DE SOLICITUDES SIN DISCRIMINACION
             $app->get('/byCategorias', \App\Action\Solicitudes\SolicitudesbyCategoriasFinderAction::class);//completed DASHBOARD
             $app->get('/consulta/{nro_solicitud}', \App\Action\Solicitudes\SolicitudesConsultaReaderAction::class);//completed          //Se conecta con el sipi y devuelve los datos de un numero de solicitud
-            $app->get('/{id_requerimiento}', \App\Action\Solicitudes\SolicitudesReaderAction::class);//completed           //ESTA TRAE LAS SOLICITUDES DE UN REQUERIMIENTO
+            $app->get('/{id_requerimiento}', \App\Action\Solicitudes\SolicitudesReaderAction::class);//completed //ESTA TRAE LAS SOLICITUDES DE UN REQUERIMIENTO
             $app->get('/unicas/{id_solicitud}', \App\Action\Solicitudes\SolicitudesUnicasReaderAction::class);//completed        //ESTA TRAE LA SOLICITUD UNICA DE UN REQUERIMIENTO
             $app->post('', \App\Action\Solicitudes\SolicitudesCreatorAction::class);//completed
             $app->put('/{id_solicitud}', \App\Action\Solicitudes\SolicitudesUpdaterAction::class);//completed
@@ -120,6 +120,7 @@ return function (App $app) {
         '/requerimientos',
         function (RouteCollectorProxy $app) { 
             $app->get('/byEstados', \App\Action\Requerimientos\RequerimientosbyEstadosFinderAction::class);//completed DASHBOARD
+            $app->get('/listaxEstados/{array_estados_id}', \App\Action\Requerimientos\RequerimientoslistaxEstadosFinderAction::class);// 
             $app->get('/unique/{id_requerimiento}', \App\Action\Requerimientos\RequerimientosReaderAction::class);//completed
             $app->get('/{nro_pag}/{cant_registros}[/{params:.*}]', \App\Action\Requerimientos\RequerimientosFinderAction::class);//completed
             $app->post('', \App\Action\Requerimientos\RequerimientosCreatorAction::class);//completed
